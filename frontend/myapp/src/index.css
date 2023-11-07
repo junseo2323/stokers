@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'notosanskr';
+  src: url('../public/Noto_sans_kr/NotoSansKR-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

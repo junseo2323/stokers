@@ -1,0 +1,70 @@
+.Register {
+    display: flex;
+}
+
+.Logo_container2 {
+    width: auto;
+    height: auto;
+    padding-top: 40vh;
+    padding-bottom: 1vh;
+    margin-left: 30px;
+}
+
+.Login2_container {
+    display: flex;
+    justify-content: center;
+    position: inherit;
+    left: 7%;
+    width: 336px;
+    height: 650px;
+    flex-shrink: 0;
+
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.Input_container {
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+    position: relative;
+    width: 20.4375rem;
+}
+
+.Button2 {
+    font-size: 16px;
+    color: white;
+    border: 0;
+    background-color: transparent;
+    width: 124px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 7%;
+}  
+
+.Logo2 {
+    float: left;
+    width: auto;
+    height: 72px;
+}
+
+h1 {
+    float: left;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input[type=radio] {
+    float: left;
+    width: 10%;
+}
+
+.Radio_container > span {
+    position: inherit;
+    text-align: left;
+    margin-left: 15px;
+} 
