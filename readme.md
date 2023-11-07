@@ -1,67 +1,44 @@
-## 터미데이터 팀 GDSC 개발 레포지토리
+# 터미데이터 팀 GDSC 개발 레포지토리
 
-뚱땅뚱땅 개발중. 곧 리드미 작성예정
+### Link
+- Link: [Notion][Notionlink] [Figma][Figmalink]
 
-### fork
+[Notionlink]: https://www.notion.so/jjuin/GDSC-MARATHON-8100dd591884478f9612895106eb3354?pvs=4 "Go Notion"
+[Figmalink]: https://www.figma.com/file/RzdvOhDRiVSfWO1LYS7QLs/%ED%84%B0%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0?type=design&node-id=94%3A179&mode=design&t=YZqaTpwztDqT7uGk-1 "Go Figma"
 
+## 프로젝트 소개
+세상의 모든 사람이 손 쉽게 주식을 거래하는 그날까지,
+남녀노소 쉽게 주식을 익힐 수 있는 웹앱플리케이션 입니다.
+
+## 팀원
+-  `오준서` : 개발 팀장, 백엔드 개발, 프론트엔드 상태관리 및 비동기 작업 진행.
+-  `이승준` : 프론트엔드 개발. 컴포넌트 제작 및 최적화.
+-  `남윤혁` : 프론트엔드 개발. 컴포넌트 제작.
+
+## 개발환경
+  - **backend** : `python 3.9` `Django` `restApi`
+    - **Database** : `sqplite3`
+  - **frontend** : `React` `Redux` `ContextApi`
+
+## 프로젝트 시작 방법
+> clone 후 내용을 작성하겠습니다.
+
+clone을 하셨다면, backend, frontend 로 파일이 나뉘게 됩니다.
+backend 를 위해 python, frontend 를 위해 node 가 다운로드 되어야 합니다.
+
+### Backend Start
 ```
-일단 협업을 하면서 해당 프로젝트에 기여하고자 한다면 아마 가장 먼저 fork를 통해 레포지토리를 가져와야할 것이다.
-
-fork는 이름처럼 마치 포크로 찍어서 가져온다는 느낌으로 다른 사람의 저장소에 있는 파일들을 내 저장소로 가져오는 것이다.
-```
-
-### clone
-
-```
-git clone <레포지토리 URL>
-```
-
-### remote
-
-```
-// 원격저장소 remote등록
-git remote add <이름> <저장소 URL>
-
-// 원격저장소 확인
-git remote -v
-```
-
-### branch
-```
-// 브랜치 생성
-git branch <브랜치명>
-
-// 브랜치 이동
-git checkout <브랜치명>
-
-// 생성과 동시에 이동하는 단축어
-git checkout -b <브랜치명>
- 
-// 브랜치 리스트 확인
-git branch
+    cd backend
+    python3 -m venv venv
+    source venv/bin/activate (mac os.)
+    venv\Scripts\activate.bat (windows os.)
+    pip install -r requirements.txt
+    python manage.py runserver
 ```
 
-### add, commit, push
+### Frontend Start
 ```
-git add .
-git commit -m "commit내용"
-git push origin <브랜치명>
-```
-
-### 병합 요청
-```
-6. pull request(PR) 보내기
-이렇게 push까지 마치고 나면 내 github저장소의 위에 compare & pull request버튼이 생성되어 있다.
-```
-
-### merge
-```
-pull(동기화)
-merge가 완료되면 내 로컬 파일에도 다른 사람이 추가한 내용이 반영될 것이다.
-
-git pull <원본 remote명칭> <브랜치명>
-branch 삭제
-그리고 해당 작업이 끝난 branch는 삭제해준다.
-
-git branch -d <브랜치명>
+    cd frontend
+    cd myapp
+    npm start
 ```

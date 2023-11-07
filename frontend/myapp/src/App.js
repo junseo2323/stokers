@@ -11,8 +11,6 @@ import Text from "./components/Quest_text"
 import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests"; 
 import Quiz from "./components/Quiz";
-import RecommendLong from "./pages/RecommendLong";
-import RecommendShort from "./pages/RecommendShort";
 
 import Login from "./pages/Login";
 import Register from './pages/Register';
@@ -152,7 +150,6 @@ function App() {
                   <Route path="/quest/exequte/:id" element={<Exequte/>} />
                   <Route path="/quest/image/:id" element={<Quiz/>} />
                 </Route>
-                <Route path="" element={<RecommendLong/>} />
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
               </Routes>
