@@ -3,7 +3,7 @@ import logo123 from "../image/logo123.png"
 import "./Login.scss";
 
 import { useContext } from "react";
-import {AuthContext} from "../App";
+import {AuthContext} from "../utils/user-Api";
 import { useNavigate,Link } from "react-router-dom";
 import { useState, useEffect } from "react";
  

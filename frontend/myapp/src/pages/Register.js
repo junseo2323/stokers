@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {useContext} from "react";
-import {AuthContext} from "../App";
+import {AuthContext} from "../utils/user-Api";
 import { useNavigate } from 'react-router-dom';
 
 import logo from '../image/logo123.png'
