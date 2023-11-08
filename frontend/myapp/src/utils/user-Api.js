@@ -1,7 +1,9 @@
 import React, { createContext,useState,useEffect } from 'react';
 import {jwtDecode} from 'jwt-decode';
 
-const Api = () => {
+const AuthContext = createContext();
+
+const Api = ({children}) => {
     const [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
         ? JSON.parse(localStorage.getItem("authTokens"))
@@ -105,9 +107,12 @@ const Api = () => {
         refreshUser
     };
 
-    return contextData;
+    return (
+        <AuthContext.Provider value={contextData}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
-const AuthContext = createContext(Api.contextData);
 
-export default AuthContext;
+export {Api,AuthContext};
