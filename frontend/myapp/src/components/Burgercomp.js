@@ -5,7 +5,11 @@ const Burgercomp = () => {
 
     return(
         <div className='Buger'>
-            
+            <ul>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ul>
         </div>
     )
 }
