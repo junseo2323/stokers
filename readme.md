@@ -1,5 +1,18 @@
 # 터미데이터 팀 GDSC 개발 레포지토리
-:test
+
+### ISSUE
+> 23/11/10 2:56
+*AWS 서버 DJANGO 구축 완료*
+Slack에 올라온 DEM을 활용하여 서버에 접속해보세요!
+```
+Host aws_server
+    HostName ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com
+    User ubuntu
+    Port 22
+    IdentityFile /Users/ojunseo/.ssh/Junseo2323.pem
+```
+위 ssh config를 활용하여 접속
+
 ### Link
 - Link: [Notion][Notionlink] [Figma][Figmalink]
 
