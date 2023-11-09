@@ -16,6 +16,7 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Questlist
 from .models import Quizmission
 from .models import Textmission
+from .serializer import StatusSerializer
 from .serializer import QuestlistSerializer
 from .serializer import QuizlistSerializer
 from .serializer import TextmissionSerializer
@@ -70,6 +71,18 @@ class TextmissionView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = TextmissionSerializer
 
+class StatuslistAPIView(generics.ListAPIView):
+    queryset = User.objects.all()  
+    serializer_class = StatusSerializer
+    lookup_field = 'Username'  # 이 필드를 기반으로 객체를 가져올 것입니다.
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            serializer = self.get_serializer(instance)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Questlist.DoesNotExist:
+            return Response({'error': 'Quizlist not found'}, status=status.HTTP_404_NOT_FOUND)
 
 
 
@@ -84,5 +97,7 @@ def getRoutes(request):
         '/api/quizlist',
         '/api/quizlist/<int:QuestId>/',
         '/api/textmission/<int:QuestId>/',
+        '/api/status/<str:Username>/',
+
     ]
     return Response(routes)

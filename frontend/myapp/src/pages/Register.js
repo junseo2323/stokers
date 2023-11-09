@@ -24,7 +24,7 @@ const Register = (props) => {
 
     return(
         <div>
-            <div className='Register'>
+        <div className='Register'>
             <div className='Background_container'>
                 <div className='Logo_container2'>
                     <img src={logo} className='Logo2'></img>

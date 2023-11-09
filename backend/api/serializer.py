@@ -33,7 +33,7 @@ class RegisterSerializer(serializers.ModelSerializer):
                 {"password": "Password fields didn't match."})
 
         return attrs
-
+ 
     def create(self, validated_data):
         user = User.objects.create(
             username=validated_data['username'],
@@ -72,3 +72,8 @@ class TextmissionSerializer(serializers.ModelSerializer):
 
         textmission.save()
         return textmission
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['status']
