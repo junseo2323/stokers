@@ -19,7 +19,7 @@ const Api = ({children}) => {
 
     const loginUser = async (username, password) => {
         console.log("로그인 함수 호출됨.")
-        const response = await fetch("http://127.0.0.1:8000/api/token/", {
+        const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com:8080/api/token/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,7 +46,7 @@ const Api = ({children}) => {
     const refreshUser = async (username) => {
         console.log("리프레시 진행중.");
         console.log(username);
-        const response = await fetch("http://127.0.0.1:8000/api/refresh/"+username, {
+        const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com:8080/api/refresh/"+username, {
         method: "GET"
         });
         const data = await response.json();
@@ -55,7 +55,7 @@ const Api = ({children}) => {
     const registerUser = async (username,email, nickname , password, password2) => {
         console.log("회원가입 함수 호출됨.")
         
-        const response = await fetch("http://127.0.0.1:8000/api/register/", {
+        const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com:8080/api/register/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
