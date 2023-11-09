@@ -3,7 +3,7 @@ import "./Burgercomp.scss";
 
 const Burgercomp = () => {
 
-    return(
+    return (
         <div className='Buger'>
             <ul>
                 <li>test</li>
