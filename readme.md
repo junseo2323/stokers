@@ -1,5 +1,5 @@
 # 터미데이터 팀 GDSC 개발 레포지토리
-
+:test
 ### Link
 - Link: [Notion][Notionlink] [Figma][Figmalink]
 
