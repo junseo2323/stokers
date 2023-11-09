@@ -1,8 +1,5 @@
 # 터미데이터 팀 GDSC 개발 레포지토리
 
-### NAM TEST
-# TEST BRANCH
-
 ### ISSUE
 > 23/11/10 2:56
 *AWS 서버 DJANGO 구축 완료*
