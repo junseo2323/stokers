@@ -13,11 +13,13 @@ const Nav = () => {
 
     const onButtonClick = () => {
         setOnbugger(!onbugger);
+        const element = document.getElementById("Nav_componenet");
+        element.style.display = "none";
     }
 
     return (
         <>
-            <div className='Nav_componenet'>
+            <div className='Nav_componenet' id='Nav_componenet'>
                 <img src={logo} className='logo' />
                 <button onClick={logoutUser}>로그아웃</button>
                 <button onClick={onButtonClick} className='bugerbutton'>
