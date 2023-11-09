@@ -19,6 +19,7 @@ const Nav = () => {
         <>
             <div className='Nav_componenet'>
                 <img src={logo} className='logo' />
+                <button onClick={logoutUser}>로그아웃</button>
                 <button onClick={onButtonClick} className='bugerbutton'>
                     <img src={hamberger} className='hamberger' />
                 </button>
