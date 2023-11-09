@@ -1,4 +1,46 @@
-.Buger{
-    height: 100vh;
-    width: auto;
+.Buger {
+    height: 100%;
+    width: 90%;
+    float: right;
+    border-radius: 16px;
+    background: #EFEBFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+
+    .ExitButton {
+        font-size: 30px;
+        float: right;
+        border: 0;
+        background: none;
+        margin: 60px;
+        margin-top: 57px;
+        margin-right: 28px;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        text-align: center;
+        color: #000;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: -0.408px;
+        display: flex;
+        width: 100%;
+        height: 53px;
+        padding-bottom: 20px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+
+
+        .logout {
+            margin-top: 400px;
+        }
+    }
 }
