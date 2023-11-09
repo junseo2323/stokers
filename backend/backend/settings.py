@@ -3,6 +3,8 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ALLOWED_HOSTS = ['ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com']
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -13,8 +15,6 @@ SECRET_KEY = 'django-insecure-gcy4((q+odihh2514lh#guerlat*-_i5rvudf^!^qxqw3xgo$v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'api.User'
 
