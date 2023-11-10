@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Burgercomp.scss";
 
-const Burgercomp = () => {
+const Burgercomp = (props) => {
+
+    const onButtonClick = () => {
+        props.setOnbugger(false);
+    }
 
     return (
-        <div className='Buger'>
-            <button className='ExitButton'>X</button>
+        <div className='Buger' id='Buger'>
+            <button className='ExitButton' onClick={onButtonClick}>X</button>
             <ul>
                 <li>
                     <Link to="/">개인정보 관리</Link>

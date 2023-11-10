@@ -1,8 +1,10 @@
 .Nav_componenet {
+    z-index: 1;
+    position: relative;
     background-color: #BEADFA;
     width: 100%;
-    height: 80px;
-    padding-top: 47px;
+    height: 20vh;
+
     .hamberger {
         float: right;
         width: 35px;
@@ -21,6 +23,16 @@
         float: left;
         width: 86px;
         height: auto;
+    }
+
+    #OnBugerElement {
+        visibility: visible;
+        padding-top: 6vh;
+    }
+
+    #OffBugerElement {
+        visibility: hidden;
+        padding-top: 6vh;
     }
 }
 

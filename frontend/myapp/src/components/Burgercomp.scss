@@ -1,6 +1,19 @@
-.Buger {
-    height: 100%;
-    width: 90%;
+#OffBuger {
+    visibility: visible;
+    transform: translateX(100%);
+    transition: all .3s ease-out 0s;
+    height: 0;
+}
+
+#OnBuger {
+    position: fixed;
+    z-index: 999999;
+    visibility: visible;
+    transform: translateX(0);
+    transition: all .3s ease-out 0s;
+    margin-bottom: 1000px;
+    height: 100vh;
+    width: 46.6vw;
     float: right;
     border-radius: 16px;
     background: #EFEBFF;
