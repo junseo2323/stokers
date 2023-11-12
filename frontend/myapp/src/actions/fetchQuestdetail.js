@@ -4,7 +4,7 @@ import { fetchQUESTDETAILRequest, fetchQUESTDETAILSuccess, fetchQUESTDETAILError
 export const fetchQUESTDETAIL = (id) => {
     return dispatch => {
         dispatch(fetchQUESTDETAILRequest());
-        axios.get('http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com:8080/api/questlist/'+id)
+        axios.get('http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/questlist/'+id)
         .then(res => {
             dispatch(fetchQUESTDETAILSuccess(res.data));
         })
