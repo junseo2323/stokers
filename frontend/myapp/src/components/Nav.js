@@ -49,7 +49,7 @@ const Nav = () => {
                         <Link to="/">최근 주식 이슈 요약</Link>
                     </li>
                     <li>
-                        <Link to="/" className='logout'>로그아웃</Link>
+                        <Link to="/" onClick={logoutUser} className='logout'>로그아웃</Link>
                     </li>
                 </ul>
                 </div>

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext,useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from "../utils/user-Api";
+
+
 import "./Burgercomp.scss";
 
 const Burgercomp = (props) => {
-
+    const { logoutUser } = useContext(AuthContext);
     const onButtonClick = () => {
         props.setOnbugger(false);
     }
@@ -28,7 +31,7 @@ const Burgercomp = (props) => {
                     <Link to="/">최근 주식 이슈 요약</Link>
                 </li>
                 <li>
-                    <Link to="/" className='logout'>로그아웃</Link>
+                    <button onClick={logoutUser} className='logout'>로그아웃</button>
                 </li>
             </ul>
         </div>
