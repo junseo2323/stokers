@@ -115,3 +115,5 @@ export const fetchQUESTDETAILSuccess = QUESTDETAIL => ({
   type: FETCH_QUESTDETAIL_SUCCESS,
   payload: {QUESTDETAIL}
 })
+
+/*****************************************************/

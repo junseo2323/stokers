@@ -10,7 +10,6 @@ import Text from "./components/Quest_text"
 import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
-import Hamburger from "./components/Burgercomp";
 
 import Login from "./pages/Login";
 import Register from './pages/Register';

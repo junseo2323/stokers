@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import logo from "../image/logo123.png";
 import hamberger from "../image/hamberger.svg";
-import Burgercomp from "./Burgercomp";
 import { Outlet } from "react-router"
 import { AuthContext } from "../utils/user-Api";
 import { Link } from 'react-router-dom';
