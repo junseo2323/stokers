@@ -16,12 +16,17 @@ const Register = (props) => {
     const {loginUser, registerUser } = useContext(AuthContext);
     const navigator = useNavigate();
     
+    const handleChange = e => {
+        setStatus(e.target.value);
+    }
+
     const handleSubmit = async e => {
         e.preventDefault();
-        registerUser(username, phone , password, password2,email,status);
+        registerUser(username, password, password2,status,email,phone);
+        console.log(username, password, password2,status,email,phone);
         navigator("/login");
     };
-
+ 
     return(
         <div>
         <div className='Register'>
@@ -35,33 +40,33 @@ const Register = (props) => {
                         <form onSubmit={handleSubmit}>
                             <div className='Input_container'>
                                 <label>
-                                    <input required name='id'/>
+                                    <input required onChange={e => setUsername(e.target.value)}name='id'/>
                                     <span>아이디</span>
                                 </label>
                             </div>
 
                             <div className='Input_container'>
                                 <label>
-                                    <input required type='password' name='비밀번호' />
+                                    <input required type='password' onChange={e => setPassword(e.target.value)}name='비밀번호' />
                                     <span>비밀번호</span>
                                 </label>
                             </div>
 
                             <div className='Input_container'>
                                 <label>
-                                    <input required type='password' name='비밀번호확인' />
+                                    <input required type='password' onChange={e => setPassword2(e.target.value)} name='비밀번호확인' />
                                     <span>비밀번호 확인</span>
                                 </label>
                             </div>
                             <div className='Input_container'>
                                 <label>
-                                    <input required type='phone' name='휴대폰 번호' />
+                                    <input required type='phone' onChange={e => setPhone(e.target.value)} name='휴대폰 번호' />
                                     <span>휴대폰 번호</span>
                                 </label>
                             </div>
                             <div className='Input_container'>
                                 <label>
-                                    <input required type='email' name='이메일' />
+                                    <input required type='email' onChange={e => setEmail(e.target.value)} name='이메일' />
                                     <span>이메일</span>
                                 </label>
                             </div>
@@ -70,10 +75,10 @@ const Register = (props) => {
                                 <label className='Radio_container'>
                                     <span>주식 능력도</span>
                                     <div>
-                                        <input type="radio" name="val1" value="1" />
-                                        <input type="radio" name="val2" value="5" />
-                                        <input type="radio" name="val3" value="10" />  
-                                        <input type="radio" name="val4" value="15" /> 
+                                        <input type="radio" name="val1" value="1" onChange={handleChange}/>
+                                        <input type="radio" name="val2" value="5" onChange={handleChange}/>
+                                        <input type="radio" name="val3" value="10" onChange={handleChange}/>  
+                                        <input type="radio" name="val4" value="15" onChange={handleChange}/> 
                                     </div> 
                                 </label>
                             </div>
