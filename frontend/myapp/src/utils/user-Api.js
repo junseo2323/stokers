@@ -1,5 +1,6 @@
 import React, { createContext,useState,useEffect } from 'react';
 import {jwtDecode} from 'jwt-decode';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -15,6 +16,27 @@ const Api = ({children}) => {
         ? jwtDecode(localStorage.getItem("authTokens"))
         : null
     ); // localStorage에 authTokens이 있을 경우 jwt_decode로 authTokens를 decode해서 user 정보에 넣는다.
+
+    const [qstatus, setQstatus] = useState(); // localStorage에 authTokens이 있을 경우 jwt_decode로 authTokens를 decode해서 user 정보에 넣는다.
+
+    const InitQstatus = async (username) => {
+        console.log("이니셜라이징 진행중.");
+        console.log(username);
+
+        axios.get("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/status/"+username)
+            .then(
+                async function (response) {
+                    // response
+                    setQstatus(response.data);
+                    console.log(response.data); //데이터 전송 성공시
+                }
+            )
+            .catch(
+                console.log("ERRoR INIT")
+            )
+            
+    }
+
     const [loading, setLoading] = useState(true);
 
     const loginUser = async (username, password) => {
@@ -46,12 +68,15 @@ const Api = ({children}) => {
     const refreshUser = async (username) => {
         console.log("리프레시 진행중.");
         console.log(username);
+        
         const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/refresh/"+username, {
         method: "GET"
         });
         const data = await response.json();
     }
     
+
+
     const registerUser = async (username,email, nickname , password, password2) => {
         console.log("회원가입 함수 호출됨.")
         
@@ -85,6 +110,7 @@ const Api = ({children}) => {
     };
     
     useEffect(() => {
+        console.log(qstatus)
         console.log(contextData)
         if (authTokens) {
         setUser(jwtDecode(authTokens.access));
@@ -93,11 +119,13 @@ const Api = ({children}) => {
     
         if (user){
         refreshUser(user.username);
+        InitQstatus(user.username);
         }
     }, [authTokens, loading]);
     
     const contextData = {
         user,
+        qstatus,
         setUser,
         authTokens,
         setAuthTokens,
