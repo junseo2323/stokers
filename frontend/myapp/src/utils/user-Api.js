@@ -77,7 +77,7 @@ const Api = ({children}) => {
     
 
 
-    const registerUser = async (username,email, nickname , password, password2) => {
+    const registerUser = async (username, password, password2,status,email,phone) => {
         console.log("회원가입 함수 호출됨.")
         
         const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/register/", {
@@ -87,12 +87,13 @@ const Api = ({children}) => {
         },
         body: JSON.stringify({
             username,
-            nickname,
-            email,
             password,
-            password2
-        })
-                });
+            password2,
+            phone,
+            email,
+            status,
+            })
+        });
         if (response.status === 201) {
         console.log("회원가입 완료");
         } else if (response.status === 400){
