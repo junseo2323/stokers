@@ -11,6 +11,7 @@ import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
 
+import Main from "./pages/Main"
 import Login from "./pages/Login";
 import Register from './pages/Register';
 import Nav from "./components/Nav";
@@ -43,6 +44,7 @@ function App() {
                   <Route path="/quest/exequte/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Quiz />} />
                 </Route>
+                <Route path="/main" element={<Main />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
               </Routes>
