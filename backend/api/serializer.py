@@ -77,3 +77,4 @@ class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['status']
+

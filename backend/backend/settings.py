@@ -3,7 +3,11 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['localhost']
+=======
+ALLOWED_HOSTS = ['ec2-43-201-30-209.ap-northeast-2.compute.amazonaws.com']
+>>>>>>> 5db4b71d9b8bfd488b8ef814e3d57b55ca699921
 
 
 
