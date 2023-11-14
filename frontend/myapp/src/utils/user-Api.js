@@ -5,7 +5,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 const Api = ({children}) => {
-    const urls = "http://localhost:8000";
+    const urls = "http://ec2-13-124-97-107.ap-northeast-2.compute.amazonaws.com:8080";
     const [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
         ? JSON.parse(localStorage.getItem("authTokens"))
