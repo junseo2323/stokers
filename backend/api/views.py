@@ -84,6 +84,18 @@ class StatuslistAPIView(generics.ListAPIView):
         except Questlist.DoesNotExist:
             return Response({'error': 'Quizlist not found'}, status=status.HTTP_404_NOT_FOUND)
 
+class UpdateUserStatusView(generics.UpdateAPIView):
+    def put(self, request, username, format=None):
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = StatusSerializer(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -98,6 +110,7 @@ def getRoutes(request):
         '/api/quizlist/<int:QuestId>/',
         '/api/textmission/<int:QuestId>/',
         '/api/status/<str:Username>/',
+        'update_status/<str:username>/',
 
     ]
     return Response(routes)
