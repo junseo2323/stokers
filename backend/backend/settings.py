@@ -3,12 +3,7 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['localhost']
-=======
-ALLOWED_HOSTS = ['ec2-43-201-30-209.ap-northeast-2.compute.amazonaws.com']
->>>>>>> 5db4b71d9b8bfd488b8ef814e3d57b55ca699921
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,7 +36,7 @@ INSTALLED_APPS = [
 # Update MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # 추가
+    'corsheaders.middleware.CorsMiddleware',  # 추가
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -110,8 +105,8 @@ REST_FRAMEWORK = {
 
 # JWT 토큰 설정입니다.
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5), # ACCESS Token의 유효기간
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=50), # Refresh 토큰의 유효기간 
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # ACCESS Token의 유효기간
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=50),  # Refresh 토큰의 유효기간
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
