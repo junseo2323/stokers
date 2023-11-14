@@ -1,72 +1,93 @@
-
 .Register {
     display: flex;
 
 
-.Logo_container2 {
-    width: auto;
-    height: auto;
-    padding-top: 40vh;
-    padding-bottom: 1vh;
-    margin-left: 30px;
-}
+    .Logo_container2 {
+        width: auto;
+        height: auto;
+        padding-top: 40vh;
+        padding-bottom: 1vh;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
 
-.Login2_container {
-    display: flex;
-    justify-content: center;
-    position: inherit;
-    left: 7%;
-    width: 336px;
-    height: 650px;
-    flex-shrink: 0;
+    .Login2_container {
+        display: flex;
+        justify-content: center;
+        position: inherit;
+        left: 7%;
+        width: 336px;
+        height: 515px;
+        flex-shrink: 0;
 
-    border-radius: 16px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+        border-radius: 16px;
+        background: #FFF;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
 
-.Input_container {
-    font-weight: bold;
-    margin-bottom: 0.6rem;
-    position: relative;
-    width: 20.4375rem;
-}
+    .Input_container {
+        font-weight: normal;
+        margin-bottom: 0.1rem;
+        position: relative;
+        width: 20.4375rem;
+    }
 
-.Button2 {
-    font-size: 16px;
-    color: white;
-    border: 0;
-    background-color: transparent;
-    width: 124px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 16px;
-    background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left: 7%;
-}  
+    .Button2 {
+        font-size: 16px;
+        color: white;
+        border: 0;
+        background-color: transparent;
+        width: 124px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        // margin-left: 7%;
+        display: block;
+        margin: auto;
+        margin-top: 40px;
+    }
 
-.Logo2 {
-    float: left;
-    width: auto;
-    height: 72px;
-}
+    .Logo2 {
+        float: left;
+        width: auto;
+        height: 55px;
+    }
 
-h1 {
-    float: left;
-    margin-left: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
+    h1 {
+        // float: left;
+        position: relative;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        // padding-right: 60px;
+        text-align: center;
+    }
 
-input[type=radio] {
-    float: left;
-    width: 10%;
-}
+    input[type=radio] {
+        float: left;
+        width: 8%;
+        margin-top: 10px;
+        margin-left: 1px;
+    }
 
-.Radio_container > span {
-    position: inherit;
-    text-align: left;
-    margin-left: 15px;
-} 
+    .Radio_container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .Radio_container>span {
+        position: inherit;
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-top: 7px;
+        padding-right: 15px;
+    }
 }

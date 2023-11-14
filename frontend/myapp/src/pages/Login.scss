@@ -38,8 +38,7 @@
         width: auto;
         height: auto;
         margin: auto;
-        padding-top: 15vh;
-
+        padding-top: 18vh;
     }
 
     .Logo {
@@ -82,8 +81,8 @@
         height: 41px;
     }
 
-    label > span {
-        font-size: 18px;
+    label>span {
+        font-size: 16px;
         position: absolute;
         top: 2rem;
         left: 0.875rem;
@@ -92,45 +91,48 @@
         transition: top .2s;
     }
 
-    input:focus + span,
-    input:valid + span {
+    input:focus+span,
+    input:valid+span {
         top: 0.5rem;
-        margin-bottom: 32px;;
+        margin-bottom: 32px;
+        ;
     }
 
     .Input0_container {
-        font-weight: bold;
-        margin-bottom: 1.5rem;
+        font-weight: normal;
+        margin-bottom: 1rem;
         position: relative;
         width: 20.4375rem;
     }
 
-    .Input_container > span {
+    .Input_container>span {
         margin-left: 10px;
     }
 
     .Button {
-        font-size: 24px;
+        font-size: 18px;
         color: white;
         border: 0;
         background-color: transparent;
-        width: 281px;
-        height: 70px;
+        width: 217px;
+        height: 54px;
         flex-shrink: 0;
         border-radius: 16px;
         background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        margin-left: 7%;
-    }  
+        display: block;
+        margin: auto;
+        margin-top: 54px;
+    }
 
 
     .Link_contaienr {
         text-align: center;
         margin-top: 200px;
+        font-size: 14px;
     }
 
     a {
         text-decoration: none;
-        color: #515151;
+        color: #615e5e;
     }
-                    
