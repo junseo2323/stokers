@@ -85,13 +85,15 @@ class StatuslistAPIView(generics.ListAPIView):
             return Response({'error': 'Quizlist not found'}, status=status.HTTP_404_NOT_FOUND)
 
 class UpdateUserStatusView(generics.UpdateAPIView):
+    serializer_class = StatusSerializer  # serializer 클래스를 명시적으로 지정
+
     def put(self, request, username, format=None):
         try:
             user = User.objects.get(username=username)
         except User.DoesNotExist:
             return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
-        serializer = StatusSerializer(user, data=request.data)
+        serializer = self.get_serializer(user, data=request.data)  # 기본 serializer 인스턴스를 사용
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)

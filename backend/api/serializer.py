@@ -57,7 +57,7 @@ class QuizlistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quizmission
         fields = '__all__'
-
+ 
 class TextmissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Textmission

@@ -15,6 +15,6 @@ urlpatterns = [
     path('quizlist/<int:QuestId>/', views.QuizlistDetailView.as_view(), name='quizlistl-detail-api'),
     path('textmission/<int:QuestId>/', views.TextmissionView.as_view(), name='textmission-api'),
     path('status/<str:Username>/', views.StatuslistAPIView.as_view(), name='status-api'),
-    path('update_status/<str:username>/', UpdateUserStatusView.as_view(), name='update_user_status'),
+    path('update_status/<str:username>/', views.UpdateUserStatusView.as_view(), name='update_user_status'),
     path('', views.getRoutes)
 ] 
