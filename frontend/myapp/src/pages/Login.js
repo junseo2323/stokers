@@ -3,31 +3,31 @@ import logo123 from "../image/logo123.png"
 import "./Login.scss";
 
 import { useContext } from "react";
-import {AuthContext} from "../utils/user-Api";
-import { useNavigate,Link } from "react-router-dom";
+import { AuthContext } from "../utils/user-Api";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
- 
+
 const Login = () => {
-    const {loginUser , user} = useContext(AuthContext);
+    const { loginUser, user } = useContext(AuthContext);
     const [islogined, setIslogined] = useState("False");
     const navigator = useNavigate();
-  
+
     const handleSubmit = e => {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
         setIslogined(loginUser(username, password));
-      };
-      
-      const handleRegister = () => {
+    };
+
+    const handleRegister = () => {
         navigator("/register");
-      }
-    
-      if (user) {
+    }
+
+    if (user) {
         navigator("/");
-      } 
-  
-    return(
+    }
+
+    return (
         <div className='Login'>
             <div className='Background_container'>
                 <div className='Logo_container'>
@@ -37,7 +37,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                         <div className='Input0_container'>
                             <label>
-                                <input required name='id' type="text" id="username"/>
+                                <input required name='id' type="text" id="username" />
                                 <span>아이디</span>
                             </label>
                         </div>
@@ -56,11 +56,12 @@ const Login = () => {
             <div className='Link_contaienr'>
                 <Link to="/register">아이디/비밀번호 찾기</Link>
                 <br />
+                <br />
                 <Link to="/register">회원가입</Link>
             </div>
 
         </div>
     )
-} 
+}
 
 export default Login;

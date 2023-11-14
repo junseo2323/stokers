@@ -5,6 +5,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 const Api = ({children}) => {
+    const urls = "http://ec2-13-124-97-107.ap-northeast-2.compute.amazonaws.com:8080";
     const [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
         ? JSON.parse(localStorage.getItem("authTokens"))
@@ -23,7 +24,7 @@ const Api = ({children}) => {
         console.log("이니셜라이징 진행중.");
         console.log(username);
 
-        axios.get("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/status/"+username)
+        axios.get(urls+"/api/status/"+username)
             .then(
                 async function (response) {
                     // response
@@ -41,7 +42,7 @@ const Api = ({children}) => {
 
     const loginUser = async (username, password) => {
         console.log("로그인 함수 호출됨.")
-        const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/token/", {
+        const response = await fetch(urls+"/api/token/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -69,7 +70,7 @@ const Api = ({children}) => {
         console.log("리프레시 진행중.");
         console.log(username);
         
-        const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/refresh/"+username, {
+        const response = await fetch(urls+"/api/refresh/"+username, {
         method: "GET"
         });
         const data = await response.json();
@@ -80,7 +81,7 @@ const Api = ({children}) => {
     const registerUser = async (username, password, password2,status,email,phone) => {
         console.log("회원가입 함수 호출됨.")
         
-        const response = await fetch("http://ec2-52-79-194-71.ap-northeast-2.compute.amazonaws.com/api/register/", {
+        const response = await fetch(urls+"/api/register/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
