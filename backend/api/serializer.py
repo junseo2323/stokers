@@ -16,6 +16,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Frontend에서 더 필요한 정보가 있다면 여기에 추가적으로 작성하면 됩니다. token["is_superuser"] = user.is_superuser 이런식으로요.
         token['username'] = user.username
         token['email'] = user.email
+        token['status'] = user.status
+        
         return token
 
 class RegisterSerializer(serializers.ModelSerializer):

@@ -84,13 +84,13 @@ const Register = (props) => {
                                     </label>
                                 </div>
 
+                                <button className='Button2'>
+                                    회원가입
+                                </button>
 
                             </form>
                         </section>
                     </div>
-                    <button className='Button2'>
-                        회원가입
-                    </button>
                 </div>
             </div>
         </div>

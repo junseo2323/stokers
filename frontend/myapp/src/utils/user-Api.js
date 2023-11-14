@@ -5,7 +5,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 const Api = ({children}) => {
-    const urls = "http://ec2-13-124-97-107.ap-northeast-2.compute.amazonaws.com:8080";
+    const urls = "http://localhost:8000";
     const [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
         ? JSON.parse(localStorage.getItem("authTokens"))
@@ -28,13 +28,13 @@ const Api = ({children}) => {
             .then(
                 async function (response) {
                     // response
+                    console.log(response);
                     setQstatus(response.data);
-                    console.log(response.data); //데이터 전송 성공시
                 }
             )
             .catch(
-                console.log("ERRoR INIT")
-            )
+
+                )
             
     }
 
@@ -66,15 +66,6 @@ const Api = ({children}) => {
         }
     };
     
-    const refreshUser = async (username) => {
-        console.log("리프레시 진행중.");
-        console.log(username);
-        
-        const response = await fetch(urls+"/api/refresh/"+username, {
-        method: "GET"
-        });
-        const data = await response.json();
-    }
     
 
 
@@ -103,6 +94,30 @@ const Api = ({children}) => {
         console.log("회원가입 실패")
         }
     };
+
+    const updatestatusUser = async (username,newstatue) => {
+        console.log("status 업데이트 함수 호출됨.")
+        
+        try {
+            const response = await fetch(urls + "/api/update_status/" + username + "/", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: newstatue
+                })
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+        
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
+    };
+
     
     
     const logoutUser = () => {
@@ -112,15 +127,13 @@ const Api = ({children}) => {
     };
     
     useEffect(() => {
-        console.log(qstatus)
-        console.log(contextData)
         if (authTokens) {
         setUser(jwtDecode(authTokens.access));
         }
         setLoading(false);
     
         if (user){
-        refreshUser(user.username);
+            console.log(user);
         InitQstatus(user.username);
         }
     }, [authTokens, loading]);
@@ -134,7 +147,7 @@ const Api = ({children}) => {
         registerUser, //회원가입
         loginUser, //로그인
         logoutUser,
-        refreshUser
+        updatestatusUser
     };
 
     return (
