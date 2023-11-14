@@ -1,14 +1,18 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import store from "../store/store";
 import { fetchQUIZ } from "../actions/fetchQuiz"
 import { fetchQUESTDETAIL } from "../actions/fetchQuestdetail"
 import { useSelector } from "react-redux";
+import { AuthContext } from "../utils/user-Api";
+
 import './Quiz.scss';
 
-
+ 
 
 const Quiz = () => {
+    const {qstatus,updatestatusUser,user}  = useContext(AuthContext);
+
     let navigate = useNavigate();
     let { id } = useParams();
     useEffect(()=>{
@@ -26,7 +30,7 @@ const Quiz = () => {
         setPre(ans);
         setAns(e.target.id);
     };
-
+ 
     //버튼 클릭시 색깔 변경
     useEffect(()=>{
         if(ans!=null){
@@ -34,13 +38,17 @@ const Quiz = () => {
             element.style.backgroundColor = '#739072';
             element.style.color = 'white';
             //퀴즈 정답시
-            if(Number(ans) === quizstate.QuizAnswer){
+            if(Number(ans)-1 === quizstate.QuizAnswer){ //db랑 frontend랑 맞지 않았네요. -1로 임시 수정.
+                updatestatusUser(user.username,qstatus[user.user_id-1].status+1);
                 const aelement = document.getElementById("IsCorrectAns");
                 aelement.style.color = 'blue';    
                 aelement.innerText = "정답입니다";
-                setTimeout(function(){navigate("/quest");}, 1000); //1초 뒤에 메인 퀘스트 페이지로 전황
+                setTimeout(function(){
+                    window.location.replace("/quest");
+                }, 1000); //1초 뒤에 메인 퀘스트 페이지로 전황
             }else{ //퀴즈 오답시
                 const aelement = document.getElementById("IsCorrectAns");
+                element.style.backgroundColor = '#DF6B6B';
                 aelement.style.color = 'red';    
                 aelement.innerText = "오답입니다";
             }

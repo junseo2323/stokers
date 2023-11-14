@@ -13,18 +13,18 @@ const Questlist = () => {
     const state = useSelector(state => state.quest.QUEST);
     let navigate = useNavigate();
     const typearr = ["","quiz","image","text","execute"];
-    const {qstatus} = useContext(AuthContext);
+    const {qstatus,user} = useContext(AuthContext);
     const [status, setStatus] = useState(0); 
     const changeColor = () => {
         try{
-            setStatus(qstatus[0].status);
+            setStatus(qstatus[user.user_id-1].status);
         }catch(err){
             console.log(err);
         }
     }
 
     useEffect(()=>{
-        console.log("effect 실행");
+        console.log(qstatus);
         changeColor()},[qstatus]);
 
     state.map(data=>{
