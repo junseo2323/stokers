@@ -2,11 +2,11 @@ import React from "react";
 
 //사용자의 레벨에 따른 이미지 5가지
 
-import image_level from '../image/house.png'
+// import image_level from '../image/house.png'
 // import image_level from '../image/startup.png'
 // import image_level from '../image/low.png'
 // import image_level from '../image/middle.png'
-// import image_level from '../image/high.png'
+import image_level from '../image/high.png'
 
 import logo from '../image/logo123.png'
 import "./Main.scss"
