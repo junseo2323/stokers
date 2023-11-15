@@ -1,5 +1,13 @@
 import React from "react";
 
+//사용자의 레벨에 따른 이미지 5가지
+
+import image_level from '../image/house.png'
+// import image_level from '../image/startup.png'
+// import image_level from '../image/low.png'
+// import image_level from '../image/middle.png'
+// import image_level from '../image/high.png'
+
 import logo from '../image/logo123.png'
 import "./Main.scss"
 import { Link } from "react-router-dom";
@@ -8,8 +16,13 @@ const Main = () => {
   return (
     <div className="Main">
       <div className="Container1">
-        <div className="Logo_container">
-          <img src={logo} className='Logo2'></img>
+        <div className="Logo_container1">
+          <div className="Div_img">
+            <img src={image_level} className='Img_level'></img>
+          </div>
+        </div>
+        <div className="Logo_container2">
+          <img src={logo} className='Logo'></img>
         </div>
         <div className="User_information">
           <div className="Level">주린이</div>
@@ -43,8 +56,6 @@ const Main = () => {
           <button class="Item2">단기 / 중장기 추천</button>
           <button class="Item3">개인 추천 종목</button>
           <button class="Item4">item4</button>
-          {/* <button className="Issue_button">최근 주식이슈 요약</button>
-          <button className="Recommend_button">단기 / 중장기 추천</button> */}
         </div>
       </div>
     </div>

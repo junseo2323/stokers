@@ -1,26 +1,40 @@
 .Main {
   height: 100%;
-  // display: flex;
-  flex-direction: column;
   background-color: #BEADFA;
-
   overflow: auto;
-  // .Container1,
-  // .Container2 {
-  //   flex: 1;
-
 
   .Container1 {
-    // flex-grow: 1;
     height: 410px;
+    position: relative;
 
-    .Logo_container {
+    .Logo_container1 {
+      position: absolute;
+      left: 85px;
+      top: 210px;
+      text-align: right;
+      display: table;
+      border: 0;
+      width: 280px;
+      height: 250px;
+    }
+
+    .Div_img {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .Img_level {
+      max-width: 210px;
+      max-height: 250px;
+    }
+
+    .Logo_container2 {
       width: auto;
       // height: 322.17px;
       height: 105.3px;
       padding-top: 0;
 
-      .Logo2 {
+      .Logo {
         float: left;
         width: 86px;
         height: auto;
@@ -109,7 +123,6 @@
   }
 
   .Container2 {
-    // flex-grow: 2;
     background-color: white;
     border-radius: 30px 30px 0px 0px;
     padding: 25px;
@@ -212,7 +225,6 @@
         margin: 8px;
 
         color: #FFF;
-        // vertical-align: top;
         text-align: center;
         font-size: 16px;
         font-style: normal;
