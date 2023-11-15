@@ -2,6 +2,8 @@ from .models import User
 from .models import Questlist 
 from .models import Quizmission
 from .models import Textmission
+from .models import Imagemission
+from .models import UserImage
 ########################################33
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -74,6 +76,18 @@ class TextmissionSerializer(serializers.ModelSerializer):
 
         textmission.save()
         return textmission
+
+class ImagemissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Imagemission
+        fields = '__all__'
+
+class UserImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserImage
+        fields = ['username', 'image', 'QuestId']  # QuestId 추가
+
+
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
