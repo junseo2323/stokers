@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from api.serializer import MyTokenObtainPairSerializer, RegisterSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import generics
-
+from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -21,7 +21,14 @@ from .serializer import QuestlistSerializer
 from .serializer import QuizlistSerializer
 from .serializer import TextmissionSerializer
 from rest_framework import status
+from PIL import Image
+import pytesseract
 
+def extract_text_from_image(image_path):
+    # 이미지에서 텍스트 추출
+    text = pytesseract.image_to_string(Image.open(image_path),lang="kor+eng")
+
+    return text
 # Create your views here.
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -71,6 +78,7 @@ class TextmissionView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = TextmissionSerializer
 
+
 class StatuslistAPIView(generics.ListAPIView):
     queryset = User.objects.all()  
     serializer_class = StatusSerializer
@@ -110,9 +118,9 @@ def getRoutes(request):
         '/api/questlist/<int:QuestId>/',
         '/api/quizlist',
         '/api/quizlist/<int:QuestId>/',
-        '/api/textmission/<int:QuestId>/',
+        '/api/textmission/',
         '/api/status/<str:Username>/',
-        'update_status/<str:username>/',
+        '/api/update_status/<str:username>/',
 
     ]
     return Response(routes)

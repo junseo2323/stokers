@@ -6,11 +6,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Api } from "./utils/user-Api";
 
-import Text from "./components/Quest_text"
+import Text from "./components/Text"
 import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
-
+import Buying from './components/Buying';
 import Main from "./pages/Main"
 import Login from "./pages/Login";
 import Register from './pages/Register';
@@ -43,6 +43,7 @@ function App() {
                   <Route path="/quest/text/:id" element={<Text />} />
                   <Route path="/quest/exequte/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Quiz />} />
+                  <Route path="/buying" element={<Buying />} />
                 </Route>
                 <Route path="/main" element={<Main />} />
                 <Route path="/login" element={<Login />} />
