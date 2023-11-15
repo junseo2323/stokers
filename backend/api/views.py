@@ -16,13 +16,17 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Questlist
 from .models import Quizmission
 from .models import Textmission
+from .models import Imagemission
 from .serializer import StatusSerializer
 from .serializer import QuestlistSerializer
 from .serializer import QuizlistSerializer
 from .serializer import TextmissionSerializer
+from .serializer import UserImageSerializer
 from rest_framework import status
 from PIL import Image
 import pytesseract
+
+from .module.ocr import ocr
 
 def extract_text_from_image(image_path):
     # 이미지에서 텍스트 추출
@@ -106,6 +110,26 @@ class UpdateUserStatusView(generics.UpdateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class ImagemissionCheckView(generics.CreateAPIView):
+    serializer_class = UserImageSerializer
+
+    def perform_create(self, serializer):
+        quest_id = self.request.data.get('QuestId')  # 입력으로 받은 QuestId
+        user_image = serializer.save()
+
+        # QuestId에 해당하는 미션을 가져옵니다
+        imagemission = get_object_or_404(Imagemission, QuestId=quest_id)
+
+        image_answer = imagemission.ImageAnswer
+        image_path = user_image.image.path
+
+        # 여기서 image_path와 image_answer를 사용하여 OCR 함수를 구현하세요
+        ocr_result = ocr(image_path, image_answer)
+
+        # OCR 결과를 기반으로 응답을 커스터마이징할 수 있습니다
+        response_data = {'ocr_result': ocr_result}
+        return JsonResponse(response_data)
 
 
 @api_view(['GET'])
@@ -121,6 +145,7 @@ def getRoutes(request):
         '/api/textmission/',
         '/api/status/<str:Username>/',
         '/api/update_status/<str:username>/',
+        '/api/imagemission/check/'
 
     ]
     return Response(routes)
