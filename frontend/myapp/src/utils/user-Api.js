@@ -1,6 +1,7 @@
 import React, { createContext,useState,useEffect } from 'react';
 import {jwtDecode} from 'jwt-decode';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 const AuthContext = createContext();
 
@@ -56,13 +57,18 @@ const Api = ({children}) => {
     
         // 로그인에 성공했을 경우 홈으로 이동
         if (response.status === 200) {
-        console.log("로그인 성공")
+        console.log("로그인 성공");
         setAuthTokens(data);
         setUser(jwtDecode(data.access));
         localStorage.setItem("authTokens", JSON.stringify(data));
     
         } else {
-        console.log("로그인 에러")
+            Swal.fire({
+                icon: 'error',
+                title: '로그인 에러',
+                text: '없는 정보입니다!',  
+                }        
+            );
         }
     };
     
@@ -87,11 +93,11 @@ const Api = ({children}) => {
             })
         });
         if (response.status === 201) {
-        console.log("회원가입 완료");
+            console.log("회원가입 완료");
         } else if (response.status === 400){
-        console.log("회원가입 실패 - 이미 있는 아이디입니다.")
+            console.log("회원가입 실패 - 이미 있는 아이디입니다.")
         } else {
-        console.log("회원가입 실패")
+            console.log("회원가입 실패")
         }
     };
 

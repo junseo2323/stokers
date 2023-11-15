@@ -5,6 +5,7 @@ import { fetchQUIZ } from "../actions/fetchQuiz"
 import { fetchQUESTDETAIL } from "../actions/fetchQuestdetail"
 import { useSelector } from "react-redux";
 import { AuthContext } from "../utils/user-Api";
+import Swal from "sweetalert2";
 
 import './Quiz.scss';
 
@@ -12,6 +13,17 @@ import './Quiz.scss';
 
 const Quiz = () => {
     const {qstatus,updatestatusUser,user}  = useContext(AuthContext);
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-center',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
     let navigate = useNavigate();
     let { id } = useParams();
@@ -41,16 +53,20 @@ const Quiz = () => {
             if(Number(ans)-1 === quizstate.QuizAnswer){ //db랑 frontend랑 맞지 않았네요. -1로 임시 수정.
                 updatestatusUser(user.username,qstatus[user.user_id-1].status+1);
                 const aelement = document.getElementById("IsCorrectAns");
-                aelement.style.color = 'blue';    
-                aelement.innerText = "정답입니다";
+                Toast.fire({
+                    icon: 'success',
+                    title: '정답입니다!!'
+                })
                 setTimeout(function(){
                     window.location.replace("/quest");
-                }, 1000); //1초 뒤에 메인 퀘스트 페이지로 전황
+                }, 1500); //1초 뒤에 메인 퀘스트 페이지로 전황
             }else{ //퀴즈 오답시
                 const aelement = document.getElementById("IsCorrectAns");
                 element.style.backgroundColor = '#DF6B6B';
-                aelement.style.color = 'red';    
-                aelement.innerText = "오답입니다";
+                Toast.fire({
+                    icon: 'error',
+                    title: '오답입니다!!'
+                })
             }
         }
         
