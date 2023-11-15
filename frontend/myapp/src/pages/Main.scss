@@ -1,0 +1,226 @@
+.Main {
+  height: 100%;
+  // display: flex;
+  flex-direction: column;
+  background-color: #BEADFA;
+
+  overflow: auto;
+  // .Container1,
+  // .Container2 {
+  //   flex: 1;
+
+
+  .Container1 {
+    // flex-grow: 1;
+    height: 410px;
+
+    .Logo_container {
+      width: auto;
+      // height: 322.17px;
+      height: 105.3px;
+      padding-top: 0;
+
+      .Logo2 {
+        float: left;
+        width: 86px;
+        height: auto;
+        margin-top: 49.14px;
+      }
+    }
+
+    .User_information {
+      margin-left: 27px;
+      margin-top: 30px;
+
+      .Level {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        /* 157.143% */
+        letter-spacing: -0.408px;
+        margin-top: 5px;
+        padding-bottom: 7px;
+      }
+
+      .Name {
+        color: #FFF;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        /* 61.111% */
+        letter-spacing: -0.408px;
+        padding-bottom: 40px;
+      }
+    }
+
+    .Quest {
+      margin-left: 27px;
+
+      .Quest_process {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        /* 157.143% */
+        letter-spacing: -0.408px;
+        padding-bottom: 7px;
+      }
+
+      .Quest_level {
+        color: #FFF;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        /* 91.667% */
+        letter-spacing: -0.408px;
+        padding-bottom: 40px;
+      }
+    }
+
+    .Interest {
+      margin-left: 27px;
+
+      .Interest_area {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        /* 157.143% */
+        letter-spacing: -0.408px;
+        padding-bottom: 7px;
+      }
+
+      .Interest_name {
+        color: #FFF;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        /* 91.667% */
+        letter-spacing: -0.408px;
+      }
+    }
+  }
+
+  .Container2 {
+    // flex-grow: 2;
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+    padding: 25px;
+
+    .Quest_button {
+      display: block;
+      margin: auto;
+      margin-top: 15px;
+      width: 250px;
+      height: 72.242px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      border: 0;
+      background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      .Maintext {
+        color: #FFF;
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: -0.408px;
+        margin-top: 10px;
+        height: 25px;
+      }
+
+      .Subtext {
+        color: #505050;
+        text-align: center;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 42px;
+        letter-spacing: -0.408px;
+        color: #505050;
+        // padding-top: 10px;
+      }
+    }
+
+    .News {
+      margin-top: 40px;
+      margin-bottom: 30px;
+
+      h3 {
+        color: #000;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: -0.408px;
+        margin: 0;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+        color: #907BA9;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        /* 157.143% */
+        letter-spacing: -0.408px;
+        height: 22px;
+        overflow: hidden;
+      }
+    }
+
+    .Bottom {
+      margin: 0;
+      margin-bottom: 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      /* 2개의 열 생성 */
+      grid-template-rows: repeat(2, 1fr);
+      /* 2개의 행 생성 */
+
+      .Item1,
+      .Item2,
+      .Item3,
+      .Item4 {
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        border: 0;
+
+        width: 145px;
+        height: 145px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 0;
+        margin: 8px;
+
+        color: #FFF;
+        // vertical-align: top;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        /* 262.5% */
+        letter-spacing: -0.408px;
+      }
+    }
+  }
+}
