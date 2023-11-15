@@ -31,11 +31,6 @@ class Quizmission(models.Model):
     def __str__(self):
         return self.QuizAnswer
 
-class Imagemission(models.Model):
-    QuestId = models.OneToOneField(Questlist, on_delete=models.CASCADE, primary_key=True)
-    Image = models.ImageField(upload_to='images/')
-    processed_result = models.JSONField()
-
 class Textmission(models.Model):
     QuestId = models.ForeignKey(Questlist, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
