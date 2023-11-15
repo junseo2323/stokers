@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Api } from "./utils/user-Api";
 
-import Text from "./components/Quest_text"
+import Text from "./components/Text"
 import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
