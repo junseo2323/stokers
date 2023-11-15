@@ -79,7 +79,7 @@ const Register = (props) => {
                                         <input type="radio" name="val2" value="5" onChange={handleChange} />
                                         <input type="radio" name="val3" value="10" onChange={handleChange} />
                                         <input type="radio" name="val4" value="15" onChange={handleChange} />
-                                        <input type="radio" name="val4" value="20" onChange={handleChange} />
+                                        <input type="radio" name="val5" value="20" onChange={handleChange} />
 
                                     </label>
                                 </div>
