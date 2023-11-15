@@ -73,8 +73,6 @@ const Api = ({children}) => {
     };
     
     
-
-
     const registerUser = async (username, password, password2,status,email,phone) => {
         console.log("회원가입 함수 호출됨.")
         
@@ -132,6 +130,22 @@ const Api = ({children}) => {
         localStorage.removeItem("authTokens");
     };
     
+    const submitTextmission = async (QuestId, userid, TextAnswer) => {
+        console.log("textmission 함수 호출됨.")
+        
+        const response = await fetch(urls+"/api/textmission/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+                QuestId: QuestId,
+                username:    userid,
+                TextAnswer:    TextAnswer
+            })
+        });
+    }
+
     useEffect(() => {
         if (authTokens) {
         setUser(jwtDecode(authTokens.access));
@@ -153,7 +167,8 @@ const Api = ({children}) => {
         registerUser, //회원가입
         loginUser, //로그인
         logoutUser,
-        updatestatusUser
+        updatestatusUser,
+        submitTextmission
     };
 
     return (

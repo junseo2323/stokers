@@ -21,7 +21,7 @@ from .serializer import QuestlistSerializer
 from .serializer import QuizlistSerializer
 from .serializer import TextmissionSerializer
 from rest_framework import status
-
+ 
 # Create your views here.
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -71,6 +71,7 @@ class TextmissionView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = TextmissionSerializer
 
+
 class StatuslistAPIView(generics.ListAPIView):
     queryset = User.objects.all()  
     serializer_class = StatusSerializer
@@ -100,6 +101,7 @@ class UpdateUserStatusView(generics.UpdateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
@@ -110,7 +112,7 @@ def getRoutes(request):
         '/api/questlist/<int:QuestId>/',
         '/api/quizlist',
         '/api/quizlist/<int:QuestId>/',
-        '/api/textmission/<int:QuestId>/',
+        '/api/textmission/',
         '/api/status/<str:Username>/',
         'update_status/<str:username>/',
 

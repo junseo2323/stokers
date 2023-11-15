@@ -27,7 +27,7 @@ class Quizmission(models.Model):
     Selection4 = models.CharField(max_length=125)  # 최대 4개의 선택지를 저장할 수 있는 배열 필드
     SelectionDetail4 = models.CharField(max_length=125)  # 선택지에 대한 설명 또는 부가 정보
     QuizAnswer = models.IntegerField()  # 정답을 나타내는 필드 (1, 2, 3, 4 중 하나)
-
+ 
     def __str__(self):
         return self.QuizAnswer
 
@@ -42,7 +42,12 @@ class Textmission(models.Model):
     TextAnswer = models.CharField(max_length=256)
 
     def save(self, *args, **kwargs):
+        # 중복된 레코드가 있는지 확인
         existing_textmissions = Textmission.objects.filter(username=self.username, QuestId=self.QuestId)
+        
+        # 중복된 레코드가 없을 경우에만 저장
+        if not existing_textmissions.exists():
+            super().save(*args, **kwargs)
 
 
 class Executionmission(models.Model):
