@@ -75,11 +75,11 @@ const Register = (props) => {
                                     <label className='Radio_container'>
                                         <span>주식 경험</span>
 
-                                        <input type="radio" name="val1" value="1" onChange={handleChange} />
-                                        <input type="radio" name="val2" value="5" onChange={handleChange} />
-                                        <input type="radio" name="val3" value="10" onChange={handleChange} />
-                                        <input type="radio" name="val4" value="15" onChange={handleChange} />
-                                        <input type="radio" name="val4" value="20" onChange={handleChange} />
+                                        <input type="radio" name="status" value="1" onChange={handleChange} />
+                                        <input type="radio" name="status" value="5" onChange={handleChange} />
+                                        <input type="radio" name="status" value="10" onChange={handleChange} />
+                                        <input type="radio" name="status" value="15" onChange={handleChange} />
+                                        <input type="radio" name="status" value="20" onChange={handleChange} />
 
                                     </label>
                                 </div>

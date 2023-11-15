@@ -6,6 +6,7 @@ import {AuthContext} from "../utils/user-Api";
 import store from "../store/store";
 import "./Quests.scss"
 import { fetchQUEST } from "../actions/fetchQuest"
+import Swal from "sweetalert2";
 
 store.dispatch(fetchQUEST());
 
@@ -35,14 +36,33 @@ const Questlist = () => {
         else
             data["id"] = "now";
     })
-
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-center',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+  
+      
     const onClickEvent = (i) => {
         if(i.id == "clear"){
-            alert("이미 완료된 퀘스트입니다!");
+            Toast.fire({
+                icon: 'info',
+                title: '이미 완료된 퀘스트입니다!'
+            })
+          
         }else if(i.id == "now") {
             navigate("/quest/"+typearr[i.Type]+"/"+i.QuestId);
         }else {
-            alert("이전 퀘스트를 먼저 수행해주세요!");
+            Toast.fire({
+                icon: 'error',
+                title: '이전 퀘스트를 먼저 수행해주세요!'
+            })
         }
     }
 
