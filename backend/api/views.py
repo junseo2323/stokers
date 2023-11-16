@@ -29,6 +29,24 @@ from PIL import Image
 import pytesseract
 from PIL import ImageEnhance
 import re
+import requests
+
+def get_news(request,article):
+    url = 'https://openapi.naver.com/v1/search/news.json'
+    headers = {
+        'X-Naver-Client-Id': '8Drr4Vw8zAIf48IUeHHv',
+        'X-Naver-Client-Secret': 'wVqfM7kihY',
+    }
+    params = {
+        'query': article,
+        'display': 5,
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    # 응답 데이터를 JSON 형식으로 변환하여 클라이언트에게 전송
+    return JsonResponse(response.json(), safe=False)
+
 
 def ocr(path,word):
     image = Image.open(path)

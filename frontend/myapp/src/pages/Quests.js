@@ -16,6 +16,7 @@ const Questlist = () => {
     const typearr = ["", "quiz", "image", "text", "execute"];
     const { qstatus, user } = useContext(AuthContext);
     const [status, setStatus] = useState(0);
+    
     const changeColor = () => {
         try {
             setStatus(qstatus[user.user_id - 1].status);
