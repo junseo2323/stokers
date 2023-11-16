@@ -73,7 +73,7 @@ const Quiz = () => {
         }
     },[ans]); 
                
-    return (
+    return ( 
     <div className="quiz">
             <div className="MainTitle">{detailstate.Name}</div>
             <div className="SubTitle">{detailstate.Subname}</div>

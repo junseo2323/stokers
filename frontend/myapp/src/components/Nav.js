@@ -25,6 +25,12 @@ const Nav = () => {
         document.querySelector('.element_container').setAttribute("id", "OnBugerElement");
 
     }
+    const onLinkClick = () => {
+        const element = document.getElementsByClassName('.Buger');
+        element.style.display = "none";
+        onBugerClick();
+        element.style.display = "block";
+    }
 
     return (
         <>
@@ -33,19 +39,19 @@ const Nav = () => {
                     <button className='ExitButton' onClick={onBugerClick}>X</button>
                     <ul>
                         <li>
-                            <Link to="/">개인정보 관리</Link>
+                            <Link to="/main" onClick={onLinkClick}>홈</Link>
                         </li>
                         <li>
-                            <Link to="/">퀘스트</Link>
+                            <Link to="/quest" onClick={onLinkClick}>퀘스트</Link>
                         </li>
                         <li>
-                            <Link to="/">퀘스트 랭크</Link>
+                            <Link to="/rank" onClick={onLinkClick}>퀘스트 랭크</Link>
                         </li>
                         <li>
-                            <Link to="/">단기 / 중장기 추천</Link>
+                            <Link to="/news" onClick={onLinkClick}>오늘의 뉴스</Link>
                         </li>
                         <li>
-                            <Link to="/">최근 주식 이슈 요약</Link>
+                            <Link to="/follow" onClick={onLinkClick}>주식 길라잡이</Link>
                         </li>
                         <li>
                             <Link to="/login" onClick={logoutUser} className='logout'>로그아웃</Link>

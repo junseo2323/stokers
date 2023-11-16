@@ -9,7 +9,7 @@ import { Api } from "./utils/user-Api";
 import Testcomp from "./components/Testcomp";
 
 import Text from "./components/Text"
-import Exequte from "./components/Quest_execute"
+import Exequte from "./components/Execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
 import Image from './components/Image';
@@ -20,7 +20,6 @@ import Nav from "./components/Nav";
 import { Provider } from "react-redux";
 import store from "./store/store"
 import Follow from "./components/Follow";
-import FollowBuy from "./components/FollowBuy";
 
 import "./App.scss";
 
@@ -44,15 +43,14 @@ function App() {
             <Mainframe className="scroll">
               <Routes>
                 <Route element={<Nav />}>
-                  <Route path="/" element={<Testcomp />} />
+                  <Route path="/" element={<Main />} />
                   <Route path="/main" element={<Main />} />
                   <Route path="/quest" element={<Quests />} />
                   <Route path="/quest/quiz/:id" element={<Quiz />} />
                   <Route path="/quest/text/:id" element={<Text />} />
-                  <Route path="/quest/exequte/:id" element={<Exequte />} />
+                  <Route path="/quest/execute/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Image />} />
-                  <Route path="/follow" element={<Follow />} />
-                  <Route path="/followbuy" element={<FollowBuy />} />
+                  <Route path="/follow/:id" element={<Follow />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
