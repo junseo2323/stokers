@@ -20,7 +20,14 @@ const Api = ({children}) => {
     ); // localStorage에 authTokens이 있을 경우 jwt_decode로 authTokens를 decode해서 user 정보에 넣는다.
 
     const [qstatus, setQstatus] = useState(); // localStorage에 authTokens이 있을 경우 jwt_decode로 authTokens를 decode해서 user 정보에 넣는다.
-
+    const fetchNewsData = async(article) => {
+            try {
+              const response = await axios.get('http://localhost:8000/api/news/'+article);
+              return response.data.items;
+            } catch (error) {
+              console.error('Error fetching news data:', error);
+            }
+    }
     const InitQstatus = async (username) => {
         console.log("이니셜라이징 진행중.");
         console.log(username);
@@ -192,7 +199,8 @@ const Api = ({children}) => {
         logoutUser,
         updatestatusUser,
         submitTextmission,
-        submitImagemission
+        submitImagemission,
+        fetchNewsData,
     };
 
     return (

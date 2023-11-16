@@ -10,6 +10,7 @@ const NaverNewsApp = () => {
     const res = fetchNewsData(article);
     res.then(
       data => {
+        console.log(data)
         setNewsData(data);
       }
     )

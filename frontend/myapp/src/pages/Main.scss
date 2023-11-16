@@ -4,15 +4,15 @@
   overflow: auto;
 
   .Container1 {
-    height: 410px;
+    height: 272px;
     position: relative;
 
     .Wrapper {
       display: table-cell;
       vertical-align: top;
       position: absolute;
-      left: 110px;
-      top: 190px;
+      left: 90px;
+      top: 84px;
       text-align: right;
       display: table;
       border: 0;
@@ -42,7 +42,6 @@
 
     .User_information {
       margin-left: 27px;
-      margin-top: 30px;
 
       .Level {
         color: #FFF;

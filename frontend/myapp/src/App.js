@@ -43,6 +43,7 @@ function App() {
               <Routes>
                 <Route element={<Nav />}>
                   <Route path="/" element={<Testcomp />} />
+                  <Route path="/main" element={<Main />} />
                   <Route path="/quest" element={<Quests />} />
                   <Route path="/quest/quiz/:id" element={<Quiz />} />
                   <Route path="/quest/text/:id" element={<Text />} />
@@ -50,7 +51,6 @@ function App() {
                   <Route path="/quest/image/:id" element={<Quiz />} />
                   <Route path="/buying/:id" element={<Buying />} />
                 </Route>
-                <Route path="/main" element={<Main />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
               </Routes>

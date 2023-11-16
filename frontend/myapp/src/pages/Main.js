@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../utils/user-Api";
 
@@ -13,13 +14,20 @@ import image_level5 from '../image/high.png'
 import gsap, { Power1 } from 'gsap'
 import logo from '../image/logo123.png'
 import "./Main.scss"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Main = () => {
-    const { qstatus, user } = useContext(AuthContext);
+    const { qstatus, user,fetchNewsData } = useContext(AuthContext);
+    const [newsData, setNewsData] = useState([]);
     const [status, setStatus] = useState(0);
     const [level, setLevel] = useState(0);
     const [image, setImage] = useState(image_level1);
+    const Navigate = useNavigate();
+    const removeHtmlTags = (htmlString) => {
+        const doc = new DOMParser().parseFromString(htmlString, 'text/html');
+        return doc.body.textContent || "";
+    };
+
     const changeStatus = () => {
         try {
             setStatus(qstatus[user.user_id - 1].status);
@@ -29,7 +37,6 @@ const Main = () => {
     }
 
     const chageImage = () => {
-        console.log(level);
         switch(level){
             case 0:
                 setImage(image_level1);
@@ -66,6 +73,13 @@ const Main = () => {
     }, [qstatus]);
 
     useEffect(()=>{
+        const article = "반도체";
+        const res = fetchNewsData(article);
+        res.then(
+        data => {
+            setNewsData(data);
+        }
+        )
         setLevel(parseInt(status/10));
         changeStatus();
         chageImage();
@@ -73,14 +87,15 @@ const Main = () => {
     
     const levelname = ['가내수공업','스타트업','중소기업','중견기업','대기업','마스터'];
 
-    return (
+    const onClickButton = () => {
+        Navigate('/quest');
+    }
+
+    return (  
         <div className="Main">
             <div className="Container1">
                 <div className="Wrapper">
                     <img src={image} className='Floating'></img>
-                </div>
-                <div className="Logo_container">
-                    <img src={logo} className='Logo'></img>
                 </div>
                 <div className="User_information">
                     <div className="Level">{levelname[level]}</div>
@@ -96,17 +111,20 @@ const Main = () => {
                 </div>
             </div>
             <div className="Container2">
-                <button className="Quest_button">
-                    <div className="Maintext">퀘스트</div>
+                <button className="Quest_button" onClick={onClickButton}>
+                    <div className="Maintext" >퀘스트</div>
                     <div className="Subtext">주식 시장 가이드</div>
                 </button>
                 <div className="News">
                     <ul>
                         <h3>오늘의 뉴스</h3>
-                        <li><Link>전기연 이차전지·3D프린팅 기술, 국가연구개발 우수성과 선정</Link></li>
-                        <li><Link>"공매도 금지 수혜"  이차전지 레버리지 ETF에 개인 매수세</Link></li>
-                        <li><Link>제이스텍, 171억 규모 이차전지 배터리셀 제조공정 수주</Link></li>
-                        <li><Link>수소·이차전지 유치해야…정부, 울산경자구역 추가 지정 속도</Link></li>
+                        {newsData.map((news) => (
+                        <li key={news.link}>
+                            <a href={news.link} target="_blank" rel="noopener noreferrer">
+                            {removeHtmlTags(news.title)}
+                            </a>
+                        </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="Bottom">
