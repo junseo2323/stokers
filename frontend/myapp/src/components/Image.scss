@@ -1,4 +1,4 @@
-.Buying{
+.Image{
     .Mainframe {
     
         overflow: hidden;
@@ -84,22 +84,26 @@
         width: 64px;
         height: 64px;
         flex-shrink: 0;
-        background: url('../image/UploadIcon.png') lightgray 50% / cover no-repeat;
     }
     .SuccessIcon {
         width: 64px;
         height: 64px;
-        background: url('../image/Success.png') 50% / cover no-repeat;
-      }
+    }
 
-    .YesBotton{
-        margin-left:119px;
-        width: 148px;
-        height: 35px;
-        flex-shrink: 0;
-        border-radius: 16px;
-        background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    .YesBotton {
+    font-size: 18px;
+    color: white;
+    border: 0;
+    background-color: transparent;
+    width: 217px;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: block;
+    margin: auto;
+    margin-top: 54px;
     }
     .Yes{
         color: #FFF;

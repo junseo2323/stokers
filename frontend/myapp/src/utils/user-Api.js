@@ -165,7 +165,6 @@ const Api = ({children}) => {
             },
           });
           console.log(response.data)
-          alert(response.data);
           return response.data; // 서버에서 온 응답 확인
     
           // 여기에서 응답을 상태에 따라 처리할 수 있습니다.
