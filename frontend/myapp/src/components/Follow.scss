@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+.Mainframe {
+=======
 .follow{
   .Mainframe {
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
     
     overflow: hidden;
     width: 390px;
@@ -52,10 +56,17 @@
 .ExplainTitle{
     color: #5C1CA9;
     font-family: Noto Sans KR;
+<<<<<<< HEAD
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26.4px; /* 146.667% */
+=======
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 20px; /* 146.667% */
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
     letter-spacing: -0.408px;
     padding-top:27px;
     padding-left:27px;
@@ -74,6 +85,24 @@
     letter-spacing: -0.408px;
 }
 .ExplainBody{
+<<<<<<< HEAD
+    margin-top:30px;
+    margin-left:120px;
+    width: 150px;
+    height: 326.724px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-color: gray;
+}
+.ExplainImage{
+    width: 150px;
+    height: 326.724px;
+    border-radius: 20px;
+    background: url('../image/Follow1.png') lightgray 50% / cover no-repeat;
+}
+.PageNumber {
+    margin-top: 30px;
+=======
     margin-top:10px;
     margin-left:25px;
     width: 328px;
@@ -95,6 +124,7 @@
 
 .PageNumber {
     margin-top: 15px;
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
     margin-left: 145px;
     width: 100px;
     height: 15px;
@@ -117,5 +147,8 @@
   }
   
   
+<<<<<<< HEAD
+=======
 
 }
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683

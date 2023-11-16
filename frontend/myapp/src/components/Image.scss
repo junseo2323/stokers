@@ -88,6 +88,19 @@
     .SuccessIcon {
         width: 64px;
         height: 64px;
+<<<<<<< HEAD:frontend/myapp/src/components/Buying.scss
+        background: url('../image/Success.png') 50% / cover no-repeat;
+      }
+
+    .YesBotton{
+        margin-left:119px;
+        width: 148px;
+        height: 35px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: linear-gradient(90deg, #BEADFA 0%, #DFCCFB 100%);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+=======
     }
 
     .YesBotton {
@@ -104,6 +117,7 @@
     display: block;
     margin: auto;
     margin-top: 54px;
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683:frontend/myapp/src/components/Image.scss
     }
     .Yes{
         color: #FFF;
