@@ -66,7 +66,7 @@ const Questlist = () => {
                 title: '이전 퀘스트를 먼저 수행해주세요!'
             })
         }
-    }
+    } 
 
     return (
         <>
@@ -82,11 +82,12 @@ const Questlist = () => {
 
 const Quests = () => {
     const state = useSelector(state => state.quest.QUEST);
-    let navigate = useNavigate();
-
 
     return (
         <div className="Quest">
+            <div className="MainTitle">주식 퀘스트</div>
+            <div className="SubTitle">주식을 처음 시작하시는 분들에게<br />가이드를 제공하는 주식 퀘스트입니다.</div>
+
             <div className="Content">
                 <div className="InnerContent" id="test">
                     <Questlist />
