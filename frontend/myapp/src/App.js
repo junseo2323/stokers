@@ -12,7 +12,7 @@ import Text from "./components/Text"
 import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
-import Buying from './components/Buying';
+import Image from './components/Image';
 import Main from "./pages/Main"
 import Login from "./pages/Login";
 import Register from './pages/Register';
@@ -49,8 +49,7 @@ function App() {
                   <Route path="/quest/quiz/:id" element={<Quiz />} />
                   <Route path="/quest/text/:id" element={<Text />} />
                   <Route path="/quest/exequte/:id" element={<Exequte />} />
-                  <Route path="/quest/image/:id" element={<Quiz />} />
-                  <Route path="/buying" element={<Buying />} />
+                  <Route path="/quest/image/:id" element={<Image />} />
                   <Route path="/follow" element={<Follow />} />
                 </Route>
                 <Route path="/login" element={<Login />} />

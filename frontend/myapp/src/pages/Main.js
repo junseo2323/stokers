@@ -23,6 +23,7 @@ const Main = () => {
     const [level, setLevel] = useState(0);
     const [image, setImage] = useState(image_level1);
     const Navigate = useNavigate();
+    
     const removeHtmlTags = (htmlString) => {
         const doc = new DOMParser().parseFromString(htmlString, 'text/html');
         return doc.body.textContent || "";
