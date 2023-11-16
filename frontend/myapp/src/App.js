@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Api } from "./utils/user-Api";
 
+import Testcomp from "./components/Testcomp";
+
 import Text from "./components/Text"
 import Exequte from "./components/Quest_execute"
 import Quests from "./pages/Quests";
@@ -38,7 +40,7 @@ function App() {
             <Mainframe>
               <Routes>
                 <Route element={<Nav />}>
-                  <Route path="/" element={<Quests />} />
+                  <Route path="/" element={<Testcomp />} />
                   <Route path="/quest" element={<Quests />} />
                   <Route path="/quest/quiz/:id" element={<Quiz />} />
                   <Route path="/quest/text/:id" element={<Text />} />

@@ -31,11 +31,6 @@ class Quizmission(models.Model):
     def __str__(self):
         return self.QuizAnswer
 
-class Imagemission(models.Model):
-    QuestId = models.OneToOneField(Questlist, on_delete=models.CASCADE, primary_key=True)
-    Image = models.ImageField(upload_to='images/')
-    processed_result = models.JSONField()
-
 class Textmission(models.Model):
     QuestId = models.ForeignKey(Questlist, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -49,10 +44,17 @@ class Textmission(models.Model):
         if not existing_textmissions.exists():
             super().save(*args, **kwargs)
 
+class Imagemission(models.Model):
+    QuestId = models.ForeignKey(Questlist, on_delete=models.CASCADE)
+    ImageAnswer = models.CharField(max_length=256)
+
+class UserImage(models.Model):
+    QuestId = models.ForeignKey(Questlist, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='user_images/')
+
 
 class Executionmission(models.Model):
     QuestId = models.OneToOneField(Questlist, on_delete=models.CASCADE, primary_key=True)
     ExecutionAnswer = models.BooleanField()
 
-
-     

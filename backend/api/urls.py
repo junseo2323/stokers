@@ -16,5 +16,7 @@ urlpatterns = [
     path('textmission/', views.TextmissionView.as_view(), name='textmission-api'),
     path('status/<str:Username>/', views.StatuslistAPIView.as_view(), name='status-api'),
     path('update_status/<str:username>/', views.UpdateUserStatusView.as_view(), name='update_user_status'),
+    path('imagemission/', views.ImagemissionCheckView.as_view(), name='imagemission-check'),
+
     path('', views.getRoutes)
 ]  

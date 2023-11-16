@@ -22,7 +22,6 @@ const Quiz = () => {
         }
     })
 
-    let navigate = useNavigate();
     let { id } = useParams();
     useEffect(()=>{
         store.dispatch(fetchQUIZ(id));
