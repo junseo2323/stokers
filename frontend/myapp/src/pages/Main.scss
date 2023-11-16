@@ -5,14 +5,13 @@
 
   .Container1 {
     height: 410px;
-    // position: relative;
+    position: relative;
 
     .Wrapper {
       display: table-cell;
       vertical-align: top;
-      // position: relative;
       position: absolute;
-      left: 340px;
+      left: 86px;
       top: 190px;
       text-align: right;
       display: table;
