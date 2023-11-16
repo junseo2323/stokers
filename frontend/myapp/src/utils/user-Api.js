@@ -122,8 +122,6 @@ const Api = ({children}) => {
         }
     };
 
-    
-    
     const logoutUser = () => {
         setAuthTokens(null);
         setUser(null);
@@ -144,7 +142,32 @@ const Api = ({children}) => {
                 TextAnswer:    TextAnswer
             })
         });
-    }
+    };
+
+    const submitImagemission = async (username,imageFile,questId) => {
+    
+        try {
+          const formData = new FormData();
+          formData.append('username', username);
+          formData.append('image', imageFile);
+          formData.append('QuestId', questId);
+    
+          const response = await axios.post('http://localhost:8000/api/imagemission/', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          console.log(response.data)
+          alert(response.data);
+          return response.data; // 서버에서 온 응답 확인
+    
+          // 여기에서 응답을 상태에 따라 처리할 수 있습니다.
+        } catch (error) {
+          console.log(error);
+          return error;
+        }
+      };
+
 
     useEffect(() => {
         if (authTokens) {
@@ -168,7 +191,8 @@ const Api = ({children}) => {
         loginUser, //로그인
         logoutUser,
         updatestatusUser,
-        submitTextmission
+        submitTextmission,
+        submitImagemission
     };
 
     return (

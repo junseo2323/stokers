@@ -1,29 +1,33 @@
 // Buying.js
 import './Buying.scss';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { AuthContext } from "../utils/user-Api";
+
 
 const Buying = () => {
+  let { id } = useParams();
+  const {submitImagemission,qstatus,updatestatusUser,user}  = useContext(AuthContext);
+  const [imageFile, setImageFile] = useState(null);
+  const [questId, setQuestId] = useState(id); // 여기에 적절한 초기값을 설정하세요
+  const [username, setUsername] = useState(user.ser_id); // 여기에 적절한 초기값을 설정하세요
   const [selectedFiles, setSelectedFiles] = useState([]);
   const fileInputRef = useRef(null);
 
-  const handleFileChange = (event) => {
-    const files = Array.from(event.target.files);
-    setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
   };
 
-  const handleUpload = () => {
-    if (selectedFiles.length > 0) {
-      console.log('Selected Files:', selectedFiles);
-      // 파일을 서버로 업로드하는 등의 로직을 추가할 수 있습니다.
-    } else {
-      console.log('No files selected.');
-    }
+  const handleFormSubmit = (e) => {
+    const response = submitImagemission(user.user_id,imageFile,questId);
+    console.log(user.user_id,imageFile,parseInt(questId));
+    console.log(response);
+    alert(response.data);
   };
 
   const openFileInput = () => {
-    // 파일 선택 input을 클릭합니다.
     fileInputRef.current.click();
-  };
+  }; 
 
   return (
     <div className="Buying">
@@ -36,22 +40,23 @@ const Buying = () => {
           <div className="Explain">아래에 업로드 해주세요!</div>
         </div>
         <div className="UploadBox">
-          {/* 파일 업로드를 위한 input 요소 */}
+        <form onSubmit={handleFormSubmit}>
           <div className="UploadIcon" onClick={openFileInput}></div>
-          <input
-            type="file"
-            id="fileInput"
-            ref={fileInputRef}
-            style={{ display: 'none' }}
-            onChange={handleFileChange}
-            multiple  // 여러 파일 선택 가능하도록 설정
-          />
-        </div>
-        <div className="YesBotton">
-          <div className="Yes" onClick={handleUpload}>확인</div>
+            <input
+              type="file"
+              id="fileInput"
+              ref={fileInputRef} 
+              style={{ display: 'none' }}
+              onChange={handleImageChange}
+            />
+          <button className="YesBotton">
+            <div className="Yes">확인</div>
+          </button>
+        </form>
         </div>
       </div>
     </div>
+
   );
 };
 

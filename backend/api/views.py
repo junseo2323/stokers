@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from api.serializer import MyTokenObtainPairSerializer, RegisterSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import generics
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 
@@ -25,8 +27,21 @@ from .serializer import UserImageSerializer
 from rest_framework import status
 from PIL import Image
 import pytesseract
+from PIL import ImageEnhance
+import re
 
-from .module.ocr import ocr
+def ocr(path,word):
+    image = Image.open(path)
+    enhancer = ImageEnhance.Contrast(image)
+    image = enhancer.enhance(2.0)  # 조절할 대비값 설정
+    image = image.convert('L')
+    image.save('preprocessed_image.jpeg')
+    text = pytesseract.image_to_string(image, lang='kor', config='--oem 3')
+    word_pattern = re.compile(r'\b\w+\b')
+    words = word_pattern.findall(text)
+    res = ''.join(list(words))
+    print(res)
+    return word in res
 
 def extract_text_from_image(image_path):
     # 이미지에서 텍스트 추출
@@ -111,8 +126,17 @@ class UpdateUserStatusView(generics.UpdateAPIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
+@method_decorator(csrf_exempt, name='dispatch')
 class ImagemissionCheckView(generics.CreateAPIView):
     serializer_class = UserImageSerializer
+    
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        ansdata = self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return JsonResponse({'ans': ansdata}, status=201, headers=headers)
 
     def perform_create(self, serializer):
         quest_id = self.request.data.get('QuestId')  # 입력으로 받은 QuestId
@@ -129,7 +153,8 @@ class ImagemissionCheckView(generics.CreateAPIView):
 
         # OCR 결과를 기반으로 응답을 커스터마이징할 수 있습니다
         response_data = {'ocr_result': ocr_result}
-        return JsonResponse(response_data)
+        return response_data
+        
 
 
 @api_view(['GET'])
@@ -145,7 +170,7 @@ def getRoutes(request):
         '/api/textmission/',
         '/api/status/<str:Username>/',
         '/api/update_status/<str:username>/',
-        '/api/imagemission/check/'
+        '/api/imagemission/'
 
     ]
     return Response(routes)
