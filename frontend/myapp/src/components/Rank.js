@@ -6,7 +6,7 @@ const Rank = () => {
       <div className="Container1">
         <div className="Username">Hunsol03</div>
         <div className="Subtext">관심분야 : 이차전지
-          '''</div>
+        </div>
       </div>
       <div className="Container2">
         <div className="Top">

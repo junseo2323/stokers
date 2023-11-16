@@ -9,10 +9,10 @@ import { Api } from "./utils/user-Api";
 import Testcomp from "./components/Testcomp";
 
 import Text from "./components/Text"
-import Exequte from "./components/Quest_execute"
+import Exequte from "./components/Execute"
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
-import Buying from './components/Buying';
+import Image from './components/Image';
 import Main from "./pages/Main"
 import Login from "./pages/Login";
 import Register from './pages/Register';

@@ -1,4 +1,8 @@
-.Exequte {
+.Execute {
+  button {
+    border: 0;
+  }
+
   .MainTitle {
     padding-top: 0px;
     padding-left: 125px;
@@ -17,6 +21,7 @@
 
   .SubTitle {
     padding-right: 24px;
+    padding-bottom: 10px;
     background-color: #BEADFA;
     color: #FFF;
     text-align: right;
@@ -37,28 +42,22 @@
   }
 
   .Explain {
-    padding-left: 15px;
-    padding-top: 31px;
-    margin-left: 27px;
-    margin-bottom: 20px;
-    width: 325px;
-    height: 74px;
-    flex-shrink: 0;
-    border-radius: 16px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
     color: #000;
     font-family: Noto Sans KR;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
+    padding-left: 15px;
+    padding-top: 31px;
+    margin-left: 27px;
+    margin-bottom: 20px;
   }
 
   .Box-execute {
     position: relative;
     margin-left: 27px;
     margin-bottom: 23px;
+    margin-top: 30px;
     width: 321px;
     height: 296px;
     flex-shrink: 0;
@@ -67,10 +66,8 @@
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-  .Icon-execute {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  img {
+    width: 64px;
+    height: 64px;
   }
 }

@@ -23,6 +23,10 @@ const Main = () => {
     const [level, setLevel] = useState(0);
     const [image, setImage] = useState(image_level1);
     const Navigate = useNavigate();
+<<<<<<< HEAD
+=======
+    
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
     const removeHtmlTags = (htmlString) => {
         const doc = new DOMParser().parseFromString(htmlString, 'text/html');
         return doc.body.textContent || "";
@@ -35,6 +39,7 @@ const Main = () => {
             console.log(err);
         }
     }
+<<<<<<< HEAD
 
     const chageImage = () => {
         switch(level){
@@ -58,6 +63,11 @@ const Main = () => {
                 break;
         }
     }
+=======
+    
+    const controlImg = [image_level1,image_level2,image_level3,image_level4,image_level5];
+
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
 
     function floatingObject(selector, delay, size) {
         gsap.to(selector, 1.5, {
@@ -71,7 +81,13 @@ const Main = () => {
     useEffect(() => {
         floatingObject('.Floating', 3, 10);
     }, [qstatus]);
+<<<<<<< HEAD
 
+=======
+    useEffect(() => {
+
+    },[]);
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
     useEffect(()=>{
         const article = "반도체";
         const res = fetchNewsData(article);
@@ -82,11 +98,19 @@ const Main = () => {
         )
         setLevel(parseInt(status/10));
         changeStatus();
+<<<<<<< HEAD
         chageImage();
     },[qstatus])
     
     const levelname = ['가내수공업','스타트업','중소기업','중견기업','대기업','마스터'];
 
+=======
+
+    },[qstatus])
+    
+    const levelname = ['가내수공업','스타트업','중소기업','중견기업','대기업','마스터'];
+
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
     const onClickButton = () => {
         Navigate('/quest');
     }
@@ -95,7 +119,11 @@ const Main = () => {
         <div className="Main">
             <div className="Container1">
                 <div className="Wrapper">
+<<<<<<< HEAD
                     <img src={image} className='Floating'></img>
+=======
+                    <img src={controlImg[level]} className='Floating'></img>
+>>>>>>> a366a61348552d5936dcb17a75855da00188a683
                 </div>
                 <div className="User_information">
                     <div className="Level">{levelname[level]}</div>
