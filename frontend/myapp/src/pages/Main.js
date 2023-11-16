@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../utils/user-Api";
 
 //사용자의 레벨에 따른 이미지 5가지
 
@@ -14,8 +16,43 @@ import "./Main.scss"
 import { Link } from "react-router-dom";
 
 const Main = () => {
+    const { qstatus, user } = useContext(AuthContext);
+    const [status, setStatus] = useState(0);
+    const [level, setLevel] = useState(0);
+    const [image, setImage] = useState(image_level1);
+    const changeStatus = () => {
+        try {
+            setStatus(qstatus[user.user_id - 1].status);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const chageImage = () => {
+        console.log(level);
+        switch(level){
+            case 0:
+                setImage(image_level1);
+                break;
+            case 1:
+                setImage(image_level2);
+                break;
+            case 2:
+                setImage(image_level3);
+                break;
+            case 3:
+                setImage(image_level4);  
+                break;
+            case 4:
+                setImage(image_level5);  
+                break;
+            default:
+                setImage(image_level5);
+                break;
+        }
+    }
+
     function floatingObject(selector, delay, size) {
-        // gsap.to(요소, 시간, 옵션)
         gsap.to(selector, 1.5, {
             y: size,
             repeat: -1, // -1 무한반복
@@ -26,25 +63,32 @@ const Main = () => {
     }
     useEffect(() => {
         floatingObject('.Floating', 3, 10);
-    }, []);
+    }, [qstatus]);
 
+    useEffect(()=>{
+        setLevel(parseInt(status/10));
+        changeStatus();
+        chageImage();
+    },[qstatus])
+    
+    const levelname = ['가내수공업','스타트업','중소기업','중견기업','대기업','마스터'];
 
     return (
         <div className="Main">
             <div className="Container1">
                 <div className="Wrapper">
-                    <img src={image_level1} className='Floating'></img>
+                    <img src={image} className='Floating'></img>
                 </div>
                 <div className="Logo_container">
                     <img src={logo} className='Logo'></img>
                 </div>
                 <div className="User_information">
-                    <div className="Level">주린이</div>
-                    <div className="Name">UserName</div>
+                    <div className="Level">{levelname[level]}</div>
+                    <div className="Name">{user.username}</div>
                 </div>
                 <div className="Quest">
                     <div className="Quest_process">퀘스트 진행도</div>
-                    <div className="Quest_level">15단계</div>
+                    <div className="Quest_level">{status}단계</div>
                 </div>
                 <div className="Interest">
                     <div className="Interest_area">관심분야</div>
