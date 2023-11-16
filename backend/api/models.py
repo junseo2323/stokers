@@ -7,6 +7,8 @@ class User(AbstractUser):
     phone = models.IntegerField()
     status = models.IntegerField(default=0)  # 퀴즈 진행도를 나타내는 정수값
     first_name = None
+    theme = models.CharField(max_length=256)
+
 
 class Questlist(models.Model):
     QuestId = models.IntegerField(primary_key=True)

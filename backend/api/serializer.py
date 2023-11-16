@@ -6,6 +6,7 @@ from .models import Imagemission
 from .models import UserImage
 ########################################33
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
@@ -93,4 +94,9 @@ class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['status']
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['theme']
 

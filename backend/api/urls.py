@@ -18,6 +18,9 @@ urlpatterns = [
     path('update_status/<str:username>/', views.UpdateUserStatusView.as_view(), name='update_user_status'),
     path('imagemission/', views.ImagemissionCheckView.as_view(), name='imagemission-check'),
     path('news/<str:article>/', views.get_news, name='get_news'),
+    path('update_theme/<str:username>/', views.UpdateUserTheme.as_view(), name='update_user_theme'),
+
+
 
     path('', views.getRoutes)
 ]  
