@@ -21,6 +21,8 @@ import { Provider } from "react-redux";
 import store from "./store/store"
 import Follow from "./components/Follow";
 import FollowBuy from "./components/FollowBuy";
+import NewsMain from  "./components/NewsMain";
+import News from "./components/News";
 
 const Mainframe = styled.div`
     overflow: hidden;
@@ -50,6 +52,9 @@ function App() {
                   <Route path="/buying" element={<Buying />} />
                   <Route path="/follow" element={<Follow />} />
                   <Route path="/followbuy" element={<FollowBuy />} />
+                  <Route path="/newsmain" element={<NewsMain />} />
+                  <Route path="/news" element={<News />} />
+                  
                 </Route>
                 <Route path="/main" element={<Main />} />
                 <Route path="/login" element={<Login />} />
