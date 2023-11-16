@@ -73,11 +73,7 @@ const Quiz = () => {
         }
     },[ans]); 
                
-<<<<<<< HEAD
-    return (
-=======
     return ( 
->>>>>>> a366a61348552d5936dcb17a75855da00188a683
     <div className="quiz">
             <div className="MainTitle">{detailstate.Name}</div>
             <div className="SubTitle">{detailstate.Subname}</div>

@@ -44,14 +44,13 @@ function App() {
             <Mainframe className="scroll">
               <Routes>
                 <Route element={<Nav />}>
-                  <Route path="/" element={<Testcomp />} />
+                  <Route path="/" element={<Main />} />
                   <Route path="/main" element={<Main />} />
                   <Route path="/quest" element={<Quests />} />
                   <Route path="/quest/quiz/:id" element={<Quiz />} />
                   <Route path="/quest/text/:id" element={<Text />} />
                   <Route path="/quest/exequte/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Quiz />} />
-                  <Route path="/buying" element={<Buying />} />
                   <Route path="/follow" element={<Follow />} />
                   <Route path="/rank" element={<Rank />} />
                 </Route>
