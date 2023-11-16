@@ -19,6 +19,7 @@ import Register from './pages/Register';
 import Nav from "./components/Nav";
 import { Provider } from "react-redux";
 import store from "./store/store"
+import Follow from "./components/Follow";
 
 const Mainframe = styled.div`
     overflow: hidden;
@@ -45,7 +46,8 @@ function App() {
                   <Route path="/quest/text/:id" element={<Text />} />
                   <Route path="/quest/exequte/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Quiz />} />
-                  <Route path="/buying/:id" element={<Buying />} />
+                  <Route path="/buying" element={<Buying />} />
+                  <Route path="/follow" element={<Follow />} />
                 </Route>
                 <Route path="/main" element={<Main />} />
                 <Route path="/login" element={<Login />} />
