@@ -2,13 +2,21 @@ import './Image.scss';
 import Swal from "sweetalert2";
 import upload from "../image/UploadIcon.png";
 import success from "../image/Success.png";
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef, useContext,useEffect } from 'react';
+import store from "../store/store";
+import { fetchQUESTDETAIL } from "../actions/fetchQuestdetail"
+
 import { useParams } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import { AuthContext } from '../utils/user-Api';
 
 const Image = () => {
   let { id } = useParams();
   const { updatestatusUser,qstatus,submitImagemission, user } = useContext(AuthContext);
+  useEffect(()=>{
+    store.dispatch(fetchQUESTDETAIL(id));
+  },[])
+  const detailstate = useSelector(state => state.questdetail.QUESTDETAIL);
   const [imageFile, setImageFile] = useState(null);
   const [questId, setQuestId] = useState(id);
   const fileInputRef = useRef(null);
@@ -81,16 +89,16 @@ const Image = () => {
   const handleUploadIconClick = (e) => {
     e.preventDefault();
     openFileInput();
-  };
+  }; 
 
   return (
     <div className="Image" onDragOver={handleDragOver} onDrop={handleDrop}>
-      <div className="MainTitle">주식 1주 구매하기</div>
-      <div className="SubTitle">주식을 시작하면서,<br />1주를 구매해봅시다.</div>
+      <div className="MainTitle">{detailstate.Name}</div>
+      <div className="SubTitle">{detailstate.Subname}</div>
 
       <div className="Content">
         <div className="ExplainBotton">
-          <div className="ExplainTit">주식을 구매한 후, 매도 완료 사진을 <br />아래에 업로드 해주세요!</div>
+          <div className="ExplainTit">{detailstate.Detail}</div>
         </div>
         <form onSubmit={handleFormSubmit}>
 
