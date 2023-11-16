@@ -25,26 +25,40 @@ const Buying = () => {
     fileInputRef.current.click();
   };
 
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const files = Array.from(event.dataTransfer.files);
+    setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+  };
+
+  const preventDefault = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className="Buying">
+    <div className="Buying" onDrop={handleDrop} onDragOver={preventDefault}>
       <div className="MainTitle">주식 1주 구매하기</div>
       <div className="SubTitle">주식을 시작하면서,<br />1주를 구매해봅시다.</div>
 
       <div className="Content">
         <div className="ExplainBotton">
-          <div className="Explain">주식을 구매한 후, 매도 완료 사진을</div>
-          <div className="Explain">아래에 업로드 해주세요!</div>
+          <div className="ExplainTit">주식을 구매한 후, 매도 완료 사진을 <br />아래에 업로드 해주세요!</div>
         </div>
-        <div className="UploadBox">
+        <div
+          className="UploadBox"
+          onClick={openFileInput}
+          onDrop={handleDrop}
+          onDragOver={preventDefault}
+        >
           {/* 파일 업로드를 위한 input 요소 */}
-          <div className="UploadIcon" onClick={openFileInput}></div>
+          <div className="UploadIcon"></div>
           <input
             type="file"
             id="fileInput"
             ref={fileInputRef}
             style={{ display: 'none' }}
             onChange={handleFileChange}
-            multiple  // 여러 파일 선택 가능하도록 설정
+            multiple
           />
         </div>
         <div className="YesBotton">
