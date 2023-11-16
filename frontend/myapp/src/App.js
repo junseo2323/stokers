@@ -20,6 +20,7 @@ import Nav from "./components/Nav";
 import { Provider } from "react-redux";
 import store from "./store/store"
 import Follow from "./components/Follow";
+import FollowBuy from "./components/FollowBuy";
 
 import "./App.scss";
 
@@ -51,6 +52,7 @@ function App() {
                   <Route path="/quest/exequte/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Image />} />
                   <Route path="/follow" element={<Follow />} />
+                  <Route path="/followbuy" element={<FollowBuy />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
