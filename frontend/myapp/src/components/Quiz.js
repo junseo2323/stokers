@@ -6,10 +6,7 @@ import { fetchQUESTDETAIL } from "../actions/fetchQuestdetail"
 import { useSelector } from "react-redux";
 import { AuthContext } from "../utils/user-Api";
 import Swal from "sweetalert2";
-
 import './Quiz.scss';
-
- 
 
 const Quiz = () => {
     const {qstatus,updatestatusUser,user}  = useContext(AuthContext);
@@ -75,7 +72,7 @@ const Quiz = () => {
             pelement.style.color = '#000';
         }
     },[ans]); 
-
+               
     return (
     <div className="quiz">
             <div className="MainTitle">{detailstate.Name}</div>

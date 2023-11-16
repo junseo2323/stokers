@@ -1,7 +1,6 @@
 import './Quest_execute.scss';
 
-const Quest_execute = () =>
-{
+const Quest_execute = () => {
   return (
     <div className="Execute">
       <div className="MainTitle">AI 매매정보 이용하기 </div>

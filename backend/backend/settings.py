@@ -18,6 +18,10 @@ DEBUG = True
 AUTH_USER_MODEL = 'api.User'
 
 # Application definition
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React 앱이 실행 중인 주소
+    # 다른 허용할 origin 주소들 추가
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
