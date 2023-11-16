@@ -24,6 +24,7 @@ from .serializer import QuestlistSerializer
 from .serializer import QuizlistSerializer
 from .serializer import TextmissionSerializer
 from .serializer import UserImageSerializer
+from .serializer import UserSerializer
 from rest_framework import status
 from PIL import Image
 import pytesseract
@@ -173,6 +174,20 @@ class ImagemissionCheckView(generics.CreateAPIView):
         response_data = {'ocr_result': ocr_result}
         return response_data
         
+class UpdateUserTheme(generics.UpdateAPIView):
+    serializer_class = UserSerializer  # serializer 클래스를 명시적으로 지정
+
+    def put(self, request, username, format=None):
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = self.get_serializer(user, data=request.data)  # 기본 serializer 인스턴스를 사용
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -188,7 +203,8 @@ def getRoutes(request):
         '/api/textmission/',
         '/api/status/<str:Username>/',
         '/api/update_status/<str:username>/',
-        '/api/imagemission/'
+        '/api/update_theme/<str:username>/',
+        '/api/imagemission/',
 
     ]
     return Response(routes)
