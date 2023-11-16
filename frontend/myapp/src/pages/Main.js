@@ -36,29 +36,9 @@ const Main = () => {
             console.log(err);
         }
     }
+    
+    const controlImg = [image_level1,image_level2,image_level3,image_level4,image_level5];
 
-    const chageImage = () => {
-        switch(level){
-            case 0:
-                setImage(image_level1);
-                break;
-            case 1:
-                setImage(image_level2);
-                break;
-            case 2:
-                setImage(image_level3);
-                break;
-            case 3:
-                setImage(image_level4);  
-                break;
-            case 4:
-                setImage(image_level5);  
-                break;
-            default:
-                setImage(image_level5);
-                break;
-        }
-    }
 
     function floatingObject(selector, delay, size) {
         gsap.to(selector, 1.5, {
@@ -72,7 +52,9 @@ const Main = () => {
     useEffect(() => {
         floatingObject('.Floating', 3, 10);
     }, [qstatus]);
+    useEffect(() => {
 
+    },[]);
     useEffect(()=>{
         const article = "반도체";
         const res = fetchNewsData(article);
@@ -83,7 +65,7 @@ const Main = () => {
         )
         setLevel(parseInt(status/10));
         changeStatus();
-        chageImage();
+
     },[qstatus])
     
     const levelname = ['가내수공업','스타트업','중소기업','중견기업','대기업','마스터'];
@@ -96,7 +78,7 @@ const Main = () => {
         <div className="Main">
             <div className="Container1">
                 <div className="Wrapper">
-                    <img src={image} className='Floating'></img>
+                    <img src={controlImg[level]} className='Floating'></img>
                 </div>
                 <div className="User_information">
                     <div className="Level">{levelname[level]}</div>
