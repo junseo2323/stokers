@@ -1,0 +1,111 @@
+.Mainframe {
+    
+    overflow: hidden;
+    width: 390px;
+    height: 100vh;
+    border-radius: 25px;
+    background: #BEADFA;
+    border: 1px solid black;
+}
+.Status_bar {
+    width: 390px;
+    height: 47px;
+    background-color: #BEADFA;
+    border-radius: 25px 25px 0 0;
+    position: absolute;
+}
+.MainTitle {
+    padding-top:0px;
+    padding-left:125px;
+    padding-bottom:5px;
+    padding-right: 24px;
+    color: #FFF;
+    text-align: right;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    background-color: #BEADFA;
+/* 91.667% */
+    letter-spacing: -0.408px;
+}
+.SubTitle{
+    padding-right: 24px;
+    padding-bottom:10px;
+    background-color: #BEADFA;
+    color: #FFF;
+    text-align: right;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 22px; /* 157.143% */
+    letter-spacing: -0.408px;
+}
+.Body{
+    width: 390px;
+    height: 642px;
+    background-color:white;
+}
+
+.ExplainTitle{
+    color: #5C1CA9;
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26.4px; /* 146.667% */
+    letter-spacing: -0.408px;
+    padding-top:27px;
+    padding-left:27px;
+
+}
+.Explain{
+    margin-top:20px;
+    margin-left:20px;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 137.5% */
+    letter-spacing: -0.408px;
+}
+.ExplainBody{
+    margin-top:10px;
+    margin-left:25px;
+    width: 328px;
+    height: 404px;
+    flex-shrink: 0;
+}
+.ExplainImage{
+    width: 328px;
+    height: 404px;
+    border-radius: 20px;
+    background: url('../image/Follow1.png') lightgray 50% / cover no-repeat;
+}
+.PageNumber {
+    margin-top: 30px;
+    margin-left: 145px;
+    width: 100px;
+    height: 15px;
+    
+    .CircleNum {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+      
+      &.active {
+        background-color: #8E5AE1; // 보라색
+      }
+      
+      &.inactive {
+        background-color: #D2D2D2; // 회색
+      }
+    }
+  }
+  
+  
