@@ -1,0 +1,131 @@
+.Mainframe {
+    
+    overflow: hidden;
+    width: 390px;
+    height: 100vh;
+    border-radius: 25px;
+    background: #BEADFA;
+    border: 1px solid black;
+}
+.Status_bar {
+    width: 390px;
+    height: 47px;
+    background-color: #BEADFA;
+    border-radius: 25px 25px 0 0;
+    position: absolute;
+}
+.MainTitle {
+    padding-top:0px;
+    padding-left:125px;
+    padding-bottom:5px;
+    padding-right: 24px;
+    color: #FFF;
+    text-align: right;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    background-color: #BEADFA;
+/* 91.667% */
+    letter-spacing: -0.408px;
+}
+.SubTitle{
+    padding-right: 24px;
+    padding-bottom:10px;
+    background-color: #BEADFA;
+    color: #FFF;
+    text-align: right;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 22px; /* 157.143% */
+    letter-spacing: -0.408px;
+}
+.Body{
+    width: 390px;
+    height: 642px;
+    background-color:white;
+}
+.Title{
+  margin-top:25px;
+  width:364px;
+  height:45px;
+  margin-left:26px;
+  display:flex;
+  flex-direction: row;
+}
+.TitleImage{
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 45px;
+  margin-right:13px;
+}
+.TitleName{
+  color: #000;
+  margin-top:15px;
+  text-align: right;
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-style: bold;
+  font-weight: 700;
+  line-height: 18px; /* 100% */
+}
+.Explain{
+  margin-left:26px;
+  margin-top:7px;
+  width: 269px;
+  color: #8D8D8D;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 350;
+  line-height: 22px; /* 183.333% */
+  letter-spacing: -0.408px;
+}
+.NewsBody{
+  margin-left:26px;
+  margin-top:20px;
+  height:72px;
+  width:325px;
+  display:flex;
+  flex-direction: row;
+}
+.NewsImage{
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #D9D9D9;
+}
+.NewsInfo{
+  padding-top:5px;
+  height:72px;
+  width:198px;
+  display:flex;
+  flex-direction: column;
+  margin-right:56px;
+}
+.NewsTitle{
+  width:195px;
+  height:44px;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: -0.408px;
+}
+.NewsDate{
+  margin-top:4px;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px; /* 275% */
+  letter-spacing: -0.408px;
+}

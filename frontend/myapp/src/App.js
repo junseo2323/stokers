@@ -9,7 +9,10 @@ import { Api } from "./utils/user-Api";
 import Testcomp from "./components/Testcomp";
 
 import Text from "./components/Text"
-import Exequte from "./components/Execute"
+import Rank from "./components/Rank";
+import Exequte from "./components/Execute";
+import News from "./components/News";
+import NewsMain from "./components/NewsMain";
 import Quests from "./pages/Quests";
 import Quiz from "./components/Quiz";
 import Image from './components/Image';
@@ -51,6 +54,9 @@ function App() {
                   <Route path="/quest/execute/:id" element={<Exequte />} />
                   <Route path="/quest/image/:id" element={<Image />} />
                   <Route path="/follow/:id" element={<Follow />} />
+                  <Route path="/rank" element={<Rank />} />
+                  <Route path="/news" element={<News />} />
+                  <Route path="/newsmain" element={<NewsMain />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

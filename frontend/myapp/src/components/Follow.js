@@ -9,11 +9,11 @@ import Follow2 from '../image/Follow2.png';
 import Follow3 from '../image/Follow3.png';
 import Follow4 from '../image/Follow4.png';
 import Follow5 from '../image/Follow5.png';
-import FollowBuy1 from '../image/FollowBuy1.png';
-import FollowBuy2 from '../image/FollowBuy2.png';
-import FollowBuy3 from '../image/FollowBuy3.png';
-import FollowBuy4 from '../image/FollowBuy4.png';
-import FollowBuy5 from '../image/FollowBuy5.png';
+import FollowBuy1 from '../image/FollowBuy1.PNG';
+import FollowBuy2 from '../image/FollowBuy2.PNG';
+import FollowBuy3 from '../image/FollowBuy3.PNG';
+import FollowBuy4 from '../image/FollowBuy4.PNG';
+import FollowBuy5 from '../image/FollowBuy5.PNG';
  
 const Follow = () => {
   let { id } = useParams();
