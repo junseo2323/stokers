@@ -20,6 +20,9 @@ urlpatterns = [
     path('news/<str:article>/', views.get_news, name='get_news'),
     path('update_theme/<str:username>/', views.UpdateUserTheme.as_view(), name='update_user_theme'),
     path('theme/<str:Username>/', views.ThemelistAPIView.as_view(), name='theme-api'),
+    path('user_rank/', views.UserRankAPIView.as_view(), name='user_rank_api'),
+    path('user_rank/<str:username>/', views.UserRankByUsernameAPIView.as_view(), name='user_rank_by_username_api'),
+
 
 
 
