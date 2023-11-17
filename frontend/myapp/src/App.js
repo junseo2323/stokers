@@ -23,6 +23,7 @@ import Nav from "./components/Nav";
 import { Provider } from "react-redux";
 import store from "./store/store"
 import Follow from "./components/Follow";
+import Favorit from "./components/Favorit";
 
 import "./App.scss";
 
@@ -57,10 +58,11 @@ function App() {
                   <Route path="/rank" element={<Rank />} />
                   <Route path="/news" element={<News />} />
                   <Route path="/newsmain" element={<NewsMain />} />
+                  <Route path="/favorit" element={<Favorit />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-              </Routes>
+              </Routes> 
             </Mainframe>
           </Api>
         </Provider>

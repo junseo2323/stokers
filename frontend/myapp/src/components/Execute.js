@@ -45,7 +45,20 @@ const onClickButton = () => {
 }).then((res) => {
   if (res.isConfirmed) {
     updatestatusUser(user.username,qstatus[user.user_id-1].status+1);
-    window.location.replace("/follow/"+id);
+    switch(parseInt(id)){
+      case 6: //6번 미션 - 뉴스 메인 가기.
+        window.location.replace("/newsmain");
+        break;
+      case 8: //8번 미션 - 관심영역 정하기.
+        window.location.replace("/favorit");
+        break;
+      case 14: //14번 미션 - 홈 화면가서 확인하기.
+        window.location.replace("/main");
+        break;
+      default:
+        window.location.replace("/follow/"+id);
+        break;
+    }
   }
   else{
       //취소

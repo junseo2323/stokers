@@ -20,6 +20,7 @@ const Api = ({children}) => {
     ); // localStorage에 authTokens이 있을 경우 jwt_decode로 authTokens를 decode해서 user 정보에 넣는다.
 
     const [qstatus, setQstatus] = useState(); // localStorage에 authTokens이 있을 경우 jwt_decode로 authTokens를 decode해서 user 정보에 넣는다.
+    const [mtheme, setMtheme]=useState();
     const fetchNewsData = async(article) => {
             try {
               const response = await axios.get('http://localhost:8000/api/news/'+article);
@@ -38,6 +39,23 @@ const Api = ({children}) => {
                     // response
                     console.log(response);
                     setQstatus(response.data);
+                }
+            )
+            .catch(
+
+                )
+            
+    }
+    const InitMtheme = async (username) => {
+        console.log("이니셜라이징 진행중.");
+        console.log(username);
+
+        axios.get(urls+"/api/theme/"+username)
+            .then(
+                async function (response) {
+                    // response
+                    console.log(response);
+                    setMtheme(response.data);
                 }
             )
             .catch(
@@ -129,6 +147,28 @@ const Api = ({children}) => {
         }
     };
 
+    const updatethemeUser = async (username,favorit) => {
+        console.log(username,favorit)
+        try {
+            const response = await fetch(urls + "/api/update_theme/" + username + "/", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    theme: favorit
+                })
+            }); 
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+        
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
+    };
+
     const logoutUser = () => {
         setAuthTokens(null);
         setUser(null);
@@ -183,13 +223,16 @@ const Api = ({children}) => {
     
         if (user){
             console.log(user);
-        InitQstatus(user.username);
+            InitQstatus(user.username);
+            InitMtheme(user.username);
         }
+        
     }, [authTokens, loading]);
     
     const contextData = {
         user,
         qstatus,
+        mtheme,
         setUser,
         authTokens,
         setAuthTokens,
@@ -200,6 +243,7 @@ const Api = ({children}) => {
         submitTextmission,
         submitImagemission,
         fetchNewsData,
+        updatethemeUser,
     };
 
     return (
