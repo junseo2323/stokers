@@ -101,3 +101,14 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['theme']
 
+class UserRankSerializer(serializers.ModelSerializer):
+    rank = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'rank', 'status']
+
+    def get_rank(self, obj):
+        # Calculate and return the rank based on the status
+        rank = User.objects.filter(status__gt=obj.status).count() + 1
+        return rank

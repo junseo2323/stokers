@@ -1,20 +1,77 @@
 import "./Rank.scss"
-
 import image_level1 from '../image/house.png'
 import image_level2 from '../image/startup.png'
 import image_level3 from '../image/low.png'
 import image_level4 from '../image/middle.png'
 import image_level5 from '../image/high.png'
 
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../utils/user-Api";
+
+
 const Rank = () => {
+  const { qstatus, user,fetchNewsData,mtheme } = useContext(AuthContext);
+  const [theme, setTheme] = useState("이차전지");
+  const [status, setStatus] = useState(0);  
+  const [userRanking, setUserRanking] = useState([]);
+  const [usermyRanking, setMyUserRanking] = useState([]);
+  const [level, setLevel] = useState(0);
+
+  const controlImg = [image_level1,image_level2,image_level3,image_level4,image_level5];
+
+
+  const changeStatus = () => {
+    try {
+        setStatus(qstatus[user.user_id - 1].status);
+        setTheme(mtheme[user.user_id - 1].theme);
+    } catch (err) {
+        console.log(err);
+    }
+}
+const fetchUserRanking = async () => {
+  try {
+    // Replace 'your-api-endpoint' with the actual endpoint of your API
+    const response = await fetch("http://localhost:8000/api/user_rank/");
+    const data = await response.json();
+
+    setUserRanking(data); // Assuming the API response contains an array of user rankings
+  } catch (error) {
+    console.error("Error fetching user ranking:", error);
+  }
+};
+
+const fetchmyUserRanking = async () => {
+  try {
+    // Replace 'your-api-endpoint' with the actual endpoint of your API
+    const response = await fetch("http://localhost:8000/api/user_rank/"+user.username+"/");
+    const data = await response.json();
+
+    setMyUserRanking(data); // Assuming the API response contains an array of user rankings
+  } catch (error) {
+    console.error("Error fetching user ranking:", error);
+  }
+};
+
+
+useEffect(()=>{
+  changeStatus();
+  fetchUserRanking();
+  fetchmyUserRanking();
+  setLevel(parseInt(status/10));
+
+},[qstatus])
+  console.log(user);
+
   return (
     <div className="Rank">
       <div className="Container1">
         <div className="Block1">
-          <div className="Username">Hunsol03</div>
-          <div className="Interest">관심분야 : 이차전지</div>
-          <div className="Completed_quest">완료 퀘스트 : 7개</div>
-          <div className="Ranking">#10위</div>
+          <div className="Username">{user.username}</div>
+          <div className="Interest">관심분야 : {theme}</div>
+          <div className="Completed_quest">진행현황 : {status}단계</div>
+          <div className="Ranking">#{usermyRanking.rank}위</div>
         </div>
         <div className="Block2">
           <div className="Wrapper">
@@ -30,107 +87,30 @@ const Rank = () => {
         </div>
         <div className="Bottom">
           <ul>
-            <li>
-              <div className="Left">1</div>
+          {userRanking.map((userData, index) => (
+            <li key={index}>
+              <div className="Left">{index + 1}</div>
               <div className="Center">
                 <div className="Img_small">
-                  <img src={image_level5} className="Img"></img>
+                  <img src={controlImg[parseInt(userData.status/10)]} className="Img"></img>
                 </div>
-                <div className="Name">JaeBaek00</div>
+                <div className="Name">{userData.username}</div>
               </div>
-              <div className="Right">50단계</div>
+              <div className="Right">{`${userData.status}단계`}</div>
+              
             </li>
+          ))}
             <li>
-              <div className="Left">2</div>
+            <div className="Left">{usermyRanking.rank}</div>
               <div className="Center">
                 <div className="Img_small">
-                  <img src={image_level5} className="Img"></img>
+                  <img src={controlImg[level]} className="Img"></img>
                 </div>
-                <div className="Name">Changwoo83</div>
+                <div className="Name">{user.username}</div>
               </div>
-              <div className="Right">49단계</div>
+              <div className="Right">{user.status}단계</div>
             </li>
-            <li>
-              <div className="Left">3</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level5} className="Img"></img>
-                </div>
-                <div className="Name">Jihwan012</div>
-              </div>
-              <div className="Right">43단계</div>
-            </li>
-            <li>
-              <div className="Left">4</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level4} className="Img"></img>
-                </div>
-                <div className="Name">Jihyeon2</div>
-              </div>
-              <div className="Right">39단계</div>
-            </li>
-            <li>
-              <div className="Left">5</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level4} className="Img"></img>
-                </div>
-                <div className="Name">Junseop16</div>
-              </div>
-              <div className="Right">38단계</div>
-            </li>
-            <li>
-              <div className="Left">6</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level4} className="Img"></img>
-                </div>
-                <div className="Name">Seungjoon888</div>
-              </div>
-              <div className="Right">34단계</div>
-            </li>
-            <li>
-              <div className="Left">7</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level3} className="Img"></img>
-                </div>
-                <div className="Name">Jina01</div>
-              </div>
-              <div className="Right">28단계</div>
-            </li>
-            <li>
-              <div className="Left">8</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level3} className="Img"></img>
-                </div>
-                <div className="Name">Juhyeon38</div>
-              </div>
-              <div className="Right">21단계</div>
-            </li>
-            <li>
-              <div className="Left">9</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level2} className="Img"></img>
-                </div>
-                <div className="Name">Yumin2</div>
-              </div>
-              <div className="Right">19단계</div>
-            </li>
-            <li>
-              <div className="Left">10</div>
-              <div className="Center">
-                <div className="Img_small">
-                  <img src={image_level1} className="Img"></img>
-                </div>
-                <div className="Name">Hunsol03</div>
-              </div>
-              <div className="Right">7단계</div>
-            </li>
-
+            
           </ul>
         </div>
       </div>

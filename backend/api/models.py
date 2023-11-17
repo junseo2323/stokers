@@ -9,6 +9,11 @@ class User(AbstractUser):
     first_name = None
     theme = models.CharField(max_length=256)
 
+    def get_rank(self):
+        rank = User.objects.filter(status__gt=self.status).count() + 1
+        return rank
+
+
 
 class Questlist(models.Model):
     QuestId = models.IntegerField(primary_key=True)
