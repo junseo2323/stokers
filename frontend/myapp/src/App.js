@@ -56,7 +56,7 @@ function App() {
                   <Route path="/quest/image/:id" element={<Image />} />
                   <Route path="/follow/:id" element={<Follow />} />
                   <Route path="/rank" element={<Rank />} />
-                  <Route path="/news" element={<News />} />
+                  <Route path="/news/:theme" element={<News />} />
                   <Route path="/newsmain" element={<NewsMain />} />
                   <Route path="/favorit" element={<Favorit />} />
                 </Route>

@@ -17,8 +17,8 @@ const Rank = () => {
           <div className="Ranking">#231등</div>
         </div>
         <div className="Block2">
-          <div className="Rank_image">
-            <img src={image_level1} className='Img' />
+          <div className="Wrapper">
+            <img src={image_level1} className='Rank_img' />
           </div>
         </div>
       </div>
@@ -33,7 +33,9 @@ const Rank = () => {
             <li>
               <div className="Left">1</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level5} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">50단계</div>
@@ -41,7 +43,9 @@ const Rank = () => {
             <li>
               <div className="Left">2</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level5} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">49단계</div>
@@ -49,7 +53,9 @@ const Rank = () => {
             <li>
               <div className="Left">3</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level5} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -57,7 +63,9 @@ const Rank = () => {
             <li>
               <div className="Left">4</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level4} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -65,7 +73,9 @@ const Rank = () => {
             <li>
               <div className="Left">5</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level4} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -73,7 +83,9 @@ const Rank = () => {
             <li>
               <div className="Left">6</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level4} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -81,7 +93,9 @@ const Rank = () => {
             <li>
               <div className="Left">7</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level3} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -89,7 +103,9 @@ const Rank = () => {
             <li>
               <div className="Left">8</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level3} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -97,7 +113,9 @@ const Rank = () => {
             <li>
               <div className="Left">9</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level2} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
               <div className="Right">진행도</div>
@@ -105,10 +123,12 @@ const Rank = () => {
             <li>
               <div className="Left">231</div>
               <div className="Center">
-                <div className="Img_level">#</div>
+                <div className="Img_small">
+                  <img src={image_level2} className="Img"></img>
+                </div>
                 <div className="Name">user1</div>
               </div>
-              <div className="Right">진행도</div>
+              <div className="Right">17단계</div>
             </li>
 
           </ul>

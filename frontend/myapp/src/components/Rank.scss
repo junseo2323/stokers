@@ -70,14 +70,14 @@
       margin-right: 0;
       width: 110px;
 
-      .Rank_image {
+      .Wrapper {
         width: 100px;
         height: 160px;
         align-items: end;
         position: relative;
       }
 
-      .Img {
+      .Rank_img {
         width: 100px;
         height: auto;
         position: absolute;
@@ -104,6 +104,16 @@
 
   .Center {
     text-align: center;
+
+    .Img_small {
+      width: 18px;
+      height: 18px;
+
+      .Img {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 
   .Right {
