@@ -19,6 +19,7 @@ urlpatterns = [
     path('imagemission/', views.ImagemissionCheckView.as_view(), name='imagemission-check'),
     path('news/<str:article>/', views.get_news, name='get_news'),
     path('update_theme/<str:username>/', views.UpdateUserTheme.as_view(), name='update_user_theme'),
+    path('theme/<str:Username>/', views.ThemelistAPIView.as_view(), name='theme-api'),
 
 
 

@@ -17,9 +17,10 @@ import "./Main.scss"
 import { Link, Navigate } from "react-router-dom";
 
 const Main = () => {
-    const { qstatus, user,fetchNewsData } = useContext(AuthContext);
+    const { qstatus, user,fetchNewsData,mtheme } = useContext(AuthContext);
     const [newsData, setNewsData] = useState([]);
     const [status, setStatus] = useState(0);
+    const [theme, setTheme] = useState("이차전지");
     const [level, setLevel] = useState(0);
     const [image, setImage] = useState(image_level1);
     const Navigate = useNavigate();
@@ -32,6 +33,7 @@ const Main = () => {
     const changeStatus = () => {
         try {
             setStatus(qstatus[user.user_id - 1].status);
+            setTheme(mtheme[user.user_id - 1].theme);
         } catch (err) {
             console.log(err);
         }
@@ -56,7 +58,7 @@ const Main = () => {
 
     },[]);
     useEffect(()=>{
-        const article = "반도체";
+        const article = theme + "산업";
         const res = fetchNewsData(article);
         res.then(
         data => {
@@ -90,7 +92,7 @@ const Main = () => {
                 </div>
                 <div className="Interest">
                     <div className="Interest_area">관심분야</div>
-                    <div className="Interest_name">이차전지</div>
+                    <div className="Interest_name">{theme}</div>
                 </div>
             </div>
             <div className="Container2">

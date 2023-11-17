@@ -71,7 +71,7 @@ def extract_text_from_image(image_path):
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
-
+ 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -188,6 +188,19 @@ class UpdateUserTheme(generics.UpdateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ThemelistAPIView(generics.ListAPIView):
+    queryset = User.objects.all()  
+    serializer_class = UserSerializer
+    lookup_field = 'Username'  # 이 필드를 기반으로 객체를 가져올 것입니다.
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            serializer = self.get_serializer(instance)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Questlist.DoesNotExist:
+            return Response({'error': 'Quizlist not found'}, status=status.HTTP_404_NOT_FOUND)
 
 
 @api_view(['GET'])
