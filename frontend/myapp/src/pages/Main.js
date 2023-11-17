@@ -38,7 +38,6 @@ const Main = () => {
             console.log(err);
         }
     }
-    
     const controlImg = [image_level1,image_level2,image_level3,image_level4,image_level5];
 
 

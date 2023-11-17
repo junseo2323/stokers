@@ -25,6 +25,7 @@ from .serializer import QuizlistSerializer
 from .serializer import TextmissionSerializer
 from .serializer import UserImageSerializer
 from .serializer import UserSerializer
+from .serializer import UserRankSerializer
 from rest_framework import status
 from PIL import Image
 import pytesseract
@@ -202,6 +203,32 @@ class ThemelistAPIView(generics.ListAPIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Questlist.DoesNotExist:
             return Response({'error': 'Quizlist not found'}, status=status.HTTP_404_NOT_FOUND)
+
+class UserRankAPIView(generics.ListAPIView):
+    serializer_class = UserRankSerializer
+
+    def get_queryset(self):
+        # Order users in ascending order based on the 'status' field
+        return User.objects.order_by('-status')[:9]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class UserRankByUsernameAPIView(generics.RetrieveAPIView):
+    serializer_class = UserRankSerializer
+
+    def get_object(self):
+        # Get the user based on the provided username
+        username = self.kwargs.get('username')
+        user = User.objects.get(username=username)
+        return user
+
+    def retrieve(self, request, *args, **kwargs):
+        user = self.get_object()
+        serializer = self.get_serializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])

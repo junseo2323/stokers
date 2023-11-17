@@ -47,8 +47,8 @@ const Nav = () => {
                         <li>
                             <Link to="/rank" onClick={onLinkClick}>퀘스트 랭크</Link>
                         </li>
-                        <li>
-                            <Link to="/news" onClick={onLinkClick}>오늘의 뉴스</Link>
+                        <li> 
+                            <Link to="/newsmain" onClick={onLinkClick}>오늘의 뉴스</Link>
                         </li>
                         <li>
                             <Link to="/follow" onClick={onLinkClick}>주식 길라잡이</Link>
