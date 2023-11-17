@@ -108,7 +108,7 @@ useEffect(()=>{
                 </div>
                 <div className="Name">{user.username}</div>
               </div>
-              <div className="Right">{user.status}단계</div>
+              <div className="Right">{status}단계</div>
             </li>
             
           </ul>

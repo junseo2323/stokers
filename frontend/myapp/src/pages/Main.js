@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../utils/user-Api";
 
@@ -14,7 +14,6 @@ import image_level5 from '../image/high.png'
 import gsap, { Power1 } from 'gsap'
 import logo from '../image/logo123.png'
 import "./Main.scss"
-import { Link, Navigate } from "react-router-dom";
 
 const Main = () => {
     const { qstatus, user,fetchNewsData,mtheme } = useContext(AuthContext);
@@ -112,10 +111,10 @@ const Main = () => {
                     </ul>
                 </div>
                 <div className="Bottom">
-                    <button class="Item1">최근 주식이슈 요약</button>
-                    <button class="Item2">단기 / 중장기 추천</button>
-                    <button class="Item3">개인 추천 종목</button>
-                    <button class="Item4">item4</button>
+                    <Link to="/newsmain"><button class="Item1">오늘의 뉴스</button></Link>
+                    <Link to="/"><button class="Item2">단기 / 중장기 추천</button></Link>
+                    <Link to="/follow/1"><button class="Item3">주식 길라잡이</button></Link>
+                    <Link to="/rank"><button class="Item4">퀘스트 랭크</button></Link>
                 </div>
             </div>
         </div>
