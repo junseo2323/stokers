@@ -59,7 +59,8 @@ def ocr(path,word):
     word_pattern = re.compile(r'\b\w+\b')
     words = word_pattern.findall(text)
     res = ''.join(list(words))
-    print(res)
+    print(word)
+    print(word in res)
     return word in res
 
 def extract_text_from_image(image_path):
