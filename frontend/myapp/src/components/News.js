@@ -24,7 +24,7 @@ import category16 from '../image/category16.png';
 
 const News = () => {
   let { theme } = useParams();
-  const [subtheme,setSubtheme] = useState("이차전지");
+  const test = theme;
   const { fetchNewsData } = useContext(AuthContext);
   const [newsData,setNewsData] = useState([]);
   let controlimg;
@@ -58,17 +58,15 @@ function calculateHoursAgo(pubDate) {
   return hoursAgo;
 }
 
-  
   useEffect(()=>{
-    const article = subtheme + "주식";
+    const article = test+"주식";
     const res = fetchNewsData(article);
     res.then(
     data => {
         setNewsData(data);
-        console.log(data);
     }
   )
-},[])
+},[theme])
 const removeHtmlTags = (htmlString) => {
   const doc = new DOMParser().parseFromString(htmlString, 'text/html');
   return doc.body.textContent || "";
