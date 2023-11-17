@@ -17,14 +17,14 @@ import "./Main.scss"
 import { Link, Navigate } from "react-router-dom";
 
 const Main = () => {
-    const { qstatus, user,fetchNewsData,mtheme } = useContext(AuthContext);
+    const { qstatus, user, fetchNewsData, mtheme } = useContext(AuthContext);
     const [newsData, setNewsData] = useState([]);
     const [status, setStatus] = useState(0);
     const [theme, setTheme] = useState("이차전지");
     const [level, setLevel] = useState(0);
     const [image, setImage] = useState(image_level1);
     const Navigate = useNavigate();
-    
+
     const removeHtmlTags = (htmlString) => {
         const doc = new DOMParser().parseFromString(htmlString, 'text/html');
         return doc.body.textContent || "";
@@ -38,8 +38,8 @@ const Main = () => {
             console.log(err);
         }
     }
-    
-    const controlImg = [image_level1,image_level2,image_level3,image_level4,image_level5];
+
+    const controlImg = [image_level1, image_level2, image_level3, image_level4, image_level5];
 
 
     function floatingObject(selector, delay, size) {
@@ -56,27 +56,27 @@ const Main = () => {
     }, [qstatus]);
     useEffect(() => {
 
-    },[]);
-    useEffect(()=>{
+    }, []);
+    useEffect(() => {
         const article = theme + "산업";
         const res = fetchNewsData(article);
         res.then(
-        data => {
-            setNewsData(data);
-        }
+            data => {
+                setNewsData(data);
+            }
         )
-        setLevel(parseInt(status/10));
+        setLevel(parseInt(status / 10));
         changeStatus();
 
-    },[qstatus])
-    
-    const levelname = ['가내수공업','스타트업','중소기업','중견기업','대기업','마스터'];
+    }, [qstatus])
+
+    const levelname = ['가내수공업', '스타트업', '중소기업', '중견기업', '대기업', '마스터'];
 
     const onClickButton = () => {
         Navigate('/quest');
     }
 
-    return (  
+    return (
         <div className="Main">
             <div className="Container1">
                 <div className="Wrapper">
@@ -104,11 +104,11 @@ const Main = () => {
                     <ul>
                         <h3>오늘의 뉴스</h3>
                         {newsData.map((news) => (
-                        <li key={news.link}>
-                            <a href={news.link} target="_blank" rel="noopener noreferrer">
-                            {removeHtmlTags(news.title)}
-                            </a>
-                        </li>
+                            <li key={news.link}>
+                                <a href={news.link} target="_blank" rel="noopener noreferrer">
+                                    {removeHtmlTags(news.title)}
+                                </a>
+                            </li>
                         ))}
                     </ul>
                 </div>
