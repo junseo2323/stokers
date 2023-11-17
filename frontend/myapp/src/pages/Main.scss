@@ -64,6 +64,11 @@
         /* 61.111% */
         letter-spacing: -0.408px;
         padding-bottom: 40px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 240px;
+        position: relative;
       }
     }
 

@@ -16,8 +16,8 @@ const Nav = () => {
         setOnbugger(!onbugger);
         document.querySelector('.Buger').setAttribute("id", "OnBuger");
         document.querySelector('.element_container').setAttribute("id", "OffBugerElement");
-        
-    } 
+
+    }
 
     const onBugerClick = () => {
         setOnbugger(!onbugger);
@@ -47,7 +47,7 @@ const Nav = () => {
                         <li>
                             <Link to="/rank" onClick={onLinkClick}>퀘스트 랭크</Link>
                         </li>
-                        <li> 
+                        <li>
                             <Link to="/newsmain" onClick={onLinkClick}>오늘의 뉴스</Link>
                         </li>
                         <li>
@@ -65,8 +65,8 @@ const Nav = () => {
                     </button>
                 </div>
             </div>
-            
-            
+
+
             <Outlet />
         </>
     );
