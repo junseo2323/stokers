@@ -89,7 +89,7 @@ useEffect(()=>{
           <ul>
           {userRanking.map((userData, index) => (
             <li key={index}>
-              <div className="Left">{index + 1}</div>
+              <div className="Left">{userData.rank}</div>
               <div className="Center">
                 <div className="Img_small">
                   <img src={controlImg[parseInt(userData.status/10)]} className="Img"></img>

@@ -19,7 +19,7 @@ const Main = () => {
     const { qstatus, user,fetchNewsData,mtheme } = useContext(AuthContext);
     const [newsData, setNewsData] = useState([]);
     const [status, setStatus] = useState(0);
-    const [theme, setTheme] = useState("이차전지");
+    const [theme, setTheme] = useState("");
     const [level, setLevel] = useState(0);
     const [image, setImage] = useState(image_level1);
     const Navigate = useNavigate();
